@@ -1,3 +1,5 @@
+/*
+
 $(document).ready(function () {
     $("body").mousewheel(function (e, delta) {
         this.scrollLeft -= (delta * 30);
@@ -20,6 +22,7 @@ $(document).ready(function () {
                     .addTo(controller);
 });
 
+*/
 
 
 
@@ -31,7 +34,6 @@ $(document).ready(function () {
 
 
 
-/*
 // CONSTANTS & Globals
 var NUM_OF_SLIDES = 4;
 
@@ -105,4 +107,3 @@ function enableScroll () {
         scrollListener = true;
     }, 200);
 }
-*/

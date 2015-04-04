@@ -1,5 +1,130 @@
-/*
+/*// CONSTANTS & Globals
+var NUM_OF_SLIDES = 4;
 
+// Keep track which slide to be shown
+var curSlideId = 0;
+
+// Prevent multiple page scrolling
+var scrollListener = true;
+
+// Keep track how far the cursor has moved
+var cursorInitPos;*/
+
+var slideProperties = {
+    n: 4,
+    curSlideId: 0,
+    scrollListener: true
+};
+
+slideProperties.checkActiveLink = function (targetSlide) {
+    $(".nav").find(".active").removeClass('active');
+    if (targetSlide === 0) {
+        return;
+    }
+
+    $(this).parent().addClass('active');
+};
+
+slideProperties.changeSlide = function (targetSlide) {
+    if (targetSlide >= this.n || targetSlide < 0) {
+        this.enableScroll();
+        return;
+    }
+    
+    if (targetSlide > this.curSlideId) {
+        $("div.slides").eq(this.curSlideId).hide("slide", {direction: "left"});
+        $("div.slides").eq(targetSlide).show("slide", {direction: "right"}, this.enableScroll.bind(this));
+    } else if (targetSlide < slideProperties.curSlideId) {
+        $("div.slides").eq(this.curSlideId).hide("slide", {direction: "right"});
+        $("div.slides").eq(targetSlide).show("slide", {direction: "left"}, this.enableScroll.bind(this));
+    }
+    
+    slideProperties.curSlideId = targetSlide;
+};
+
+slideProperties.enableScroll = function () {
+    setTimeout((function () {
+        this.scrollListener = true;
+    }).bind(this), 200);
+};
+
+// Main controller
+$(document).ready(function () {
+    // Hide the loading indicator by jQuery UI
+    $("div.ui-loader").hide();
+
+    // Hide all slides other than the first slide
+    $("div.slides:not(:first)").hide();
+
+    $(document).on("DOMMouseScroll mousewheel", function (e) {
+        if (slideProperties.scrollListener) {
+            slideProperties.scrollListener = false;
+            
+            if (e.originalEvent.detail > 0 || e.originalEvent.wheelDelta < 0) slideProperties.changeSlide(slideProperties.curSlideId + 1);
+            else slideProperties.changeSlide(slideProperties.curSlideId - 1);
+        }
+    });
+
+    $("#container").on("swipeleft", function () {
+        slideProperties.changeSlide(slideProperties.curSlideId + 1);
+    });
+
+    $("#container").on("swiperight", function () {
+        slideProperties.changeSlide(slideProperties.curSlideId - 1);
+    });
+
+    // Keydown event handler
+    $(document).keydown(function (e) {
+        e = e || window.event;
+
+        // Left arrow
+        if (e.keyCode == '37') {
+            slideProperties.changeSlide(slideProperties.curSlideId - 1);
+        } 
+        // Right arrow
+        else if (e.keyCode == '39') {
+            slideProperties.changeSlide(slideProperties.curSlideId + 1);
+        }
+    });
+
+    // Navbar anchor link handler (ACTIVE CLASS & CHANGING SLIDE HANDLER)
+    $(".nav a, .navbar-brand").click(function (event) {
+        var nextSlide = parseInt(this.getAttribute("data-slide"));
+        slideProperties.changeSlide(nextSlide);
+        slideProperties.checkActiveLink.call(this, nextSlide);
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// CONTROLS IF USING MANUAL SCROLL INSTEAD OF SCROLLING IN ONE BLOCK AT A TIME //
+
+/*
 $(document).ready(function () {
     $("body").mousewheel(function (e, delta) {
         this.scrollLeft -= (delta * 30);
@@ -23,87 +148,3 @@ $(document).ready(function () {
 });
 
 */
-
-
-
-
-
-
-
-
-
-
-
-// CONSTANTS & Globals
-var NUM_OF_SLIDES = 4;
-
-// Keep track which slide to be shown
-var curSlideId = 0;
-
-// Prevent multiple page scrolling
-var scrollListener = true;
-
-// Keep track how far the cursor has moved
-var cursorInitPos;
-
-// Main controller
-$(document).ready(function () {
-    // Hide all slides other than the first slide
-    $("div.slides:not(:first)").hide();
-    
-    // Detect mouse scrolling
-    var isNextSlide = true;
-    $(document).on("DOMMouseScroll mousewheel", function (e) {
-        if (scrollListener) {
-            scrollListener = false;
-            
-            if (e.originalEvent.detail > 0 || e.originalEvent.wheelDelta < 0) isNextSlide = true;
-            else isNextSlide = false;
-        
-            changeSlide(isNextSlide);
-        }
-    });
-    
-    $(document).mousedown(function (e) {
-        cursorInitPos = e.pageX;
-        console.log("Initial position: " + cursorInitPos);
-        e.preventDefault(); // Prevent changing the cursor type
-    });
-    
-    $(document).mouseup(function (e) {
-        console.log("End position: " + e.pageX);
-        var movement = e.pageX - cursorInitPos;
-        
-        if (movement === 0) return;
-        else if (movement < 0) isNextSlide = true;
-        else isNextSlide = false;
-        
-        changeSlide(isNextSlide);
-    });
-});
-
-function changeSlide (isNextSlide) {
-    if (isNextSlide) {
-        if (curSlideId == NUM_OF_SLIDES - 1) {
-            enableScroll();
-            return;
-        }
-        
-        $("div.slides").eq(curSlideId).hide("slide", {direction: "left"});
-        $("div.slides").eq(++curSlideId).show("slide", {direction: "right"}, enableScroll);
-    } else {
-        if (curSlideId == 0) {
-            enableScroll();
-            return;
-        }
-        
-        $("div.slides").eq(curSlideId).hide("slide", {direction: "right"});
-        $("div.slides").eq(--curSlideId).show("slide", {direction: "left"}, enableScroll);
-    }
-}
-
-function enableScroll () {
-    setTimeout(function () {
-        scrollListener = true;
-    }, 200);
-}

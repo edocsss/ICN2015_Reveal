@@ -74,8 +74,8 @@ $(document).ready(function () {
     // Hide the loading indicator by jQuery UI
     $("div.ui-loader").hide();
 
-    // Hide all slides other than the first slide
-    $("div.slides:not(:first)").hide();
+    // Hiding loading layer on document ready
+    $(".loading-layer").fadeOut('500');
 
     $(document).on("DOMMouseScroll mousewheel", function (e) {
         if (slideProperties.scrollListener) {

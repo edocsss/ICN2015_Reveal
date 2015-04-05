@@ -13,7 +13,11 @@ var cursorInitPos;*/
 var slideProperties = {
     n: 4,
     curSlideId: 0,
-    scrollListener: true
+    scrollListener: true,
+    footer: {
+        selector: $('#footer'),
+        visibility: true
+    }
 };
 
 slideProperties.checkActiveLink = function (targetSlide) {
@@ -22,7 +26,17 @@ slideProperties.checkActiveLink = function (targetSlide) {
         return;
     }
 
-    $(this).parent().addClass('active');
+    $(".nav > li > a:eq(" + (targetSlide - 1) + ")").parent().addClass('active');
+};
+
+slideProperties.footer.hide = function () {
+    this.selector.hide("slide", {direction: 'down'});
+    this.visibility = false;
+};
+
+slideProperties.footer.show = function () {
+    this.selector.show('slide', {direction: 'down'});
+    this.visibility = true;
 };
 
 slideProperties.changeSlide = function (targetSlide) {
@@ -30,7 +44,14 @@ slideProperties.changeSlide = function (targetSlide) {
         this.enableScroll();
         return;
     }
+
+    if (targetSlide === this.n - 1 && this.footer.visibility === true) {
+        this.footer.hide();
+    } else if (targetSlide !== this.n - 1 && this.footer.visibility === false) {
+        this.footer.show();
+    }
     
+    this.checkActiveLink(targetSlide);
     if (targetSlide > this.curSlideId) {
         $("div.slides").eq(this.curSlideId).hide("slide", {direction: "left"});
         $("div.slides").eq(targetSlide).show("slide", {direction: "right"}, this.enableScroll.bind(this));
@@ -91,7 +112,6 @@ $(document).ready(function () {
     $(".nav a, .navbar-brand").click(function (event) {
         var nextSlide = parseInt(this.getAttribute("data-slide"));
         slideProperties.changeSlide(nextSlide);
-        slideProperties.checkActiveLink.call(this, nextSlide);
     });
 });
 

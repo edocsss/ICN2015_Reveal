@@ -55,7 +55,7 @@ slideProperties.changeSlide = function (targetSlide) {
     if (targetSlide > this.curSlideId) {
         $("div.slides").eq(this.curSlideId).hide("slide", {direction: "left"});
         $("div.slides").eq(targetSlide).show("slide", {direction: "right"}, this.enableScroll.bind(this));
-    } else if (targetSlide < slideProperties.curSlideId) {
+    } else if (targetSlide < this.curSlideId) {
         $("div.slides").eq(this.curSlideId).hide("slide", {direction: "right"});
         $("div.slides").eq(targetSlide).show("slide", {direction: "left"}, this.enableScroll.bind(this));
     }
@@ -64,9 +64,7 @@ slideProperties.changeSlide = function (targetSlide) {
 };
 
 slideProperties.enableScroll = function () {
-    setTimeout((function () {
-        this.scrollListener = true;
-    }).bind(this), 200);
+    this.scrollListener = true;
 };
 
 // Main controller
@@ -81,8 +79,12 @@ $(document).ready(function () {
         if (slideProperties.scrollListener) {
             slideProperties.scrollListener = false;
             
-            if (e.originalEvent.detail > 0 || e.originalEvent.wheelDelta < 0) slideProperties.changeSlide(slideProperties.curSlideId + 1);
-            else slideProperties.changeSlide(slideProperties.curSlideId - 1);
+            if (e.originalEvent.detail > 0 || e.originalEvent.wheelDelta < 0) {
+                slideProperties.changeSlide(slideProperties.curSlideId + 1);
+            }
+            else {
+                slideProperties.changeSlide(slideProperties.curSlideId - 1);
+            }
         }
     });
 

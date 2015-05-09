@@ -65,6 +65,22 @@ html, body {
     position: fixed;
 }
 
+.sea-wave {
+    width: 100%;
+    height: auto;
+}
+
+.sea-wave img {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    bottom: 61px; /* The height of the footer navbar is fixed at 61px */
+}
+
+.sea-wave img:nth-child(2) {
+    left: 100%;
+}
+
 .social-media-icon {
     margin: 10px 20px 10px 0;
     height: 40px;

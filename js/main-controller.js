@@ -1,15 +1,3 @@
-/*// CONSTANTS & Globals
-var NUM_OF_SLIDES = 4;
-
-// Keep track which slide to be shown
-var curSlideId = 0;
-
-// Prevent multiple page scrolling
-var scrollListener = true;
-
-// Keep track how far the cursor has moved
-var cursorInitPos;*/
-
 var slideProperties = {
     n: 4,
     curSlideId: 0,
@@ -17,6 +5,57 @@ var slideProperties = {
     footer: {
         selector: $('#footer'),
         visibility: true
+    }
+}, waves = {
+    firstWave: {
+        selector: $('#wave-one'),
+        left: $('#wave-one').position().left
+    },
+    secondWave: {
+        selector: $('#wave-two'),
+        left: $('#wave-two').position().left
+    },
+    displacement: 100,
+    moveLeft: function () {
+
+        // Move first wave
+        this.firstWave.selector.animate({
+            'left': this.firstWave.left - this.displacement
+        }, (function () {
+            this.firstWave.left = this.firstWave.left - this.displacement;
+        }).bind(this));
+
+        // Move second wave
+        this.secondWave.selector.animate({
+            'left': this.secondWave.left - this.displacement
+        }, (function () {
+            this.secondWave.left = this.secondWave.left - this.displacement;
+
+            // Wait until the wave animation is done, then enable scrolling to other slide
+            // If not -> the wave animation will stuck
+            slideProperties.enableScroll();
+        }).bind(this));
+    },
+    moveRight: function () {
+
+        // Move first wave
+        this.firstWave.selector.animate({
+            'left': this.firstWave.left + this.displacement
+        }, (function () {
+            this.firstWave.left = this.firstWave.left + this.displacement;
+            console.log(this);
+        }).bind(this));
+
+        // Move second wave
+        this.secondWave.selector.animate({
+            'left': this.secondWave.left + this.displacement
+        }, (function () {
+            this.secondWave.left = this.secondWave.left + this.displacement;
+
+            // Wait until the wave animation is done, then enable scrolling to other slide
+            // If not -> the wave animation will stuck
+            slideProperties.enableScroll();
+        }).bind(this));
     }
 };
 
@@ -53,11 +92,22 @@ slideProperties.changeSlide = function (targetSlide) {
     
     this.checkActiveLink(targetSlide);
     if (targetSlide > this.curSlideId) {
+
+        // Change slide
         $("div.slides").eq(this.curSlideId).hide("slide", {direction: "left"});
-        $("div.slides").eq(targetSlide).show("slide", {direction: "right"}, this.enableScroll.bind(this));
+        $("div.slides").eq(targetSlide).show("slide", {direction: "right"});
+
+        // Move waves
+        waves.moveLeft();
+
     } else if (targetSlide < this.curSlideId) {
+
+        // Change slide
         $("div.slides").eq(this.curSlideId).hide("slide", {direction: "right"});
-        $("div.slides").eq(targetSlide).show("slide", {direction: "left"}, this.enableScroll.bind(this));
+        $("div.slides").eq(targetSlide).show("slide", {direction: "left"});
+
+        // Move waves
+        waves.moveRight();
     }
     
     slideProperties.curSlideId = targetSlide;
@@ -116,21 +166,6 @@ $(document).ready(function () {
         slideProperties.changeSlide(nextSlide);
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

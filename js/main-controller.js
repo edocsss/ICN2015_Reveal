@@ -1,4 +1,3 @@
-
 var slideProperties = {
     n: 4,
     curSlideId: 0,

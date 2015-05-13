@@ -53,33 +53,18 @@ html, body {
     background-color: purple;
 }
 
-.trigger {
-    float: left;
-    margin-left: 50vw;
-}
-
-#animation-item {
-    left: -350px;
-    background-color: black;
-    width: 30%;
-    position: fixed;
-}
-
 .sea-wave {
-    width: 100%;
-    height: auto;
-}
-
-.sea-wave img {
-    width: 100%;
-    height: auto;
     position: fixed;
-    bottom: 61px; /* The height of the footer navbar is fixed at 61px */
+    width: 100%;
+    height: 100%;
+    bottom: 0;
 }
 
-.sea-wave img:nth-child(2) {
-    left: 100%;
+#wave-canvas {
+    width: 100%;
+    height: 100%;
 }
+
 
 .social-media-icon {
     margin: 10px 20px 10px 0;

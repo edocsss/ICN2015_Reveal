@@ -5,8 +5,8 @@
 	function Wave() {
 		
 		/** The current dimensions of the screen (updated on resize) */
-		var WIDTH = window.innerWidth;
-		var HEIGHT = window.innerHeight;
+		var WIDTH = $('#wave-canvas').width(),
+			HEIGHT = $('#wave-canvas').height();
 		
 		/** Wave settings */
 		var DENSITY = .75;
@@ -17,34 +17,36 @@
 		var WATER_DENSITY = 1.07;
 		var AIR_DENSITY = 1.02;
 		var TWITCH_INTERVAL = 1000; // The interval between random impulses being inserted into the wave to keep it moving
+
+		var WAVE_HEIGHT_MULTIPLIER = 0.65;
 		
 		var mouseIsDown;
 		var ms = {x:0, y:0}; // Mouse speed
 		var mp = {x:0, y:0}; // Mouse position
 		
 		var canvas, context, particles;
-		
 		var timeUpdateInterval, twitchInterval1, twitchInterval2;
 		var ship = new Image();
-		ship.src = 'asd.png';
+		ship.src = 'img/asd.png';
 		
 		/**
 		 * Constructor.
 		 */
-		this.Initialize = function( canvasID ) {
-			canvas = document.getElementById( canvasID );
+		this.Initialize = function () {
+			canvas = document.getElementById('wave-canvas');
+			console.log(canvas, WIDTH, HEIGHT);
 			
 			if (canvas && canvas.getContext) {
 				context = canvas.getContext('2d');
-				
+				console.log("test");
 				particles = [];
 				
 				// Generate our wave particles
-				for( var i = 0; i < DETAIL+1; i++ ) {
+				for( var i = 0; i < DETAIL + 1; i++ ) {
 					particles.push( { 
-						x: WIDTH / (DETAIL-4) * (i-2), // Pad by two particles on each side
-						y: HEIGHT*.5,
-						original: {x: 0, y: HEIGHT * .1}, // Randomize the multiplier *
+						x: WIDTH / (DETAIL - 4) * (i - 2), // Pad by two particles on each side
+						y: HEIGHT * 0.5,
+						original: {x: 0, y: HEIGHT * WAVE_HEIGHT_MULTIPLIER}, // Randomize the multiplier *
 						velocity: {x: 0, y: 1 + Math.random() * 3}, // Random for some initial movement in the wave
 						force: {x: 0, y: 0},
 						mass: 10
@@ -82,27 +84,27 @@
 		 // THIS SEEMS TO BE A VERY IMPORTANT FUNCTION!!!!
 		 // Seems to make auto movement on the wave
 		function Twitch1() {
-			ms.x = 0;
-			ms.y = 0;
+			// ms.x = 0;
+			// ms.y = 0;
 
 			var forceRange = 3 + Math.random(); // -value to +value
-			InsertImpulse(0.25 * WIDTH + 50 * Math.sin(2 * Math.PI * Math.random()) * Math.random(), (Math.random() * (forceRange * 2) - forceRange));
+			InsertImpulse(0.25 * WIDTH + 60 * Math.sin(2 * Math.PI * Math.random()) * Math.random(), 0.05 + (Math.random() * (forceRange * 2) - forceRange));
 		}
 
 		function Twitch2() {
-			ms.x = 0;
-			ms.y = 0;
+			// ms.x = 0;
+			// ms.y = 0;
 
-			var forceRange = 4 + Math.random(); // -value to +value
-			InsertImpulse( 0.5 * WIDTH + 40 * Math.cos(2 * Math.PI * Math.random()) * Math.random(), (Math.random() * (forceRange * 2) - forceRange));
+			var forceRange = 3 + Math.random(); // -value to +value
+			InsertImpulse( 0.5 * WIDTH + 100 * Math.cos(2 * Math.PI * Math.random()) * Math.random(), 0.08 + (Math.random() * (forceRange * 2) - forceRange));
 		}
 
 		function Twitch3() {
-			ms.x = 0;
-			ms.y = 0;
+			// ms.x = 0;
+			// ms.y = 0;
 
 			var forceRange = 3 + Math.random(); // -value to +value
-			InsertImpulse( 0.75 * WIDTH + 50 * Math.sin(2 * Math.PI * Math.random()) * Math.random(), (Math.random() * (forceRange * 2) - forceRange));
+			InsertImpulse( 0.75 * WIDTH + 75 * Math.sin(2 * Math.PI * Math.random()) * Math.random(), 0.06 + (Math.random() * (forceRange * 2) - forceRange));
 		}
 		
 		/**
@@ -130,13 +132,20 @@
 
 			
 			// Canvas color -> change to a darker color later
-			var gradientFill = context.createLinearGradient(WIDTH*.5,HEIGHT*.2,WIDTH*.5,HEIGHT);
-			gradientFill.addColorStop(0,'#00142F');
-			gradientFill.addColorStop(0.5,'#00284E');
-			gradientFill.addColorStop(1,'rgba(0,200,250,0)');
+			var gradientFill = context.createLinearGradient(WIDTH * 0.5, HEIGHT * 0.2, WIDTH * 0.5, HEIGHT);
+			gradientFill.addColorStop(0,'#012345');
+			gradientFill.addColorStop(0.2,'#123456');
+			gradientFill.addColorStop(0.4,'#345678');
+			gradientFill.addColorStop(0.6,'#56789a');
+			gradientFill.addColorStop(0.8,'#789abc');
+			gradientFill.addColorStop(1,'#89abcd');
 			
 			context.clearRect(0, 0, WIDTH, HEIGHT);
-			context.drawImage(ship, 0, -80);
+
+			// ADJUST THE OFFSET (70)
+			context.drawImage(ship, 30, HEIGHT - ship.height - HEIGHT * (1 - WAVE_HEIGHT_MULTIPLIER) + 70);
+
+
 			context.fillStyle = gradientFill;
 			context.beginPath();
 			context.moveTo(particles[0].x, particles[0].y);
@@ -167,7 +176,7 @@
 					var distance = DistanceBetween( mp, current );
 					
 					if( distance < AOE ) {
-						var distance = DistanceBetween( mp, {x:current.original.x, y:current.original.y} );
+						distance = DistanceBetween( mp, {x:current.original.x, y:current.original.y} );
 						
 						ms.x = ms.x * 0.98;
 						ms.y = ms.y * 0.98;
@@ -187,7 +196,6 @@
 			context.lineTo(particles[0].x, particles[0].y);
 			
 			context.fill();
-			
 		}
 		
 		/**
@@ -206,7 +214,6 @@
 					closestDistance = thisDistance;
 					closestIndex = i;
 				}
-				
 			}
 			
 			return particles[closestIndex];
@@ -221,7 +228,6 @@
 			
 			mp.x = e.layerX;
 			mp.y = e.layerY;
-			
 		}
 
 		function MouseDown(e) {
@@ -246,8 +252,8 @@
 			canvas.height = HEIGHT;
 			
 			for( var i = 0; i < DETAIL+1; i++ ) {
-				particles[i].x = WIDTH / (DETAIL-4) * (i-2);
-				particles[i].y = HEIGHT*.5;
+				particles[i].x = WIDTH / (DETAIL - 4) * (i - 2);
+				particles[i].y = HEIGHT * WAVE_HEIGHT_MULTIPLIER;
 				
 				particles[i].original.x = particles[i].x;
 				particles[i].original.y = particles[i].y;
@@ -257,18 +263,14 @@
 		/**
 		 * 
 		 */
-		function DistanceBetween(p1,p2) {
-			var dx = p2.x-p1.x;
-			var dy = p2.y-p1.y;
-			return Math.sqrt(dx*dx + dy*dy);
+		function DistanceBetween(p1, p2) {
+			var dx = p2.x - p1.x;
+			var dy = p2.y - p1.y;
+			return Math.sqrt(dx * dx + dy * dy);
 		}
 		
 	}
-	
 
-
-	/*
-	START WAVE!!
-	*/
-	var wave = new Wave();
-	wave.Initialize('wave-canvas');
+	// Start wave
+    var wave = new Wave();
+    wave.Initialize();

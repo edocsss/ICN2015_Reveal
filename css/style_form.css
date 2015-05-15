@@ -1,0 +1,26 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+.navbar-brand {
+    padding-left: 25px;
+}
+
+.loading-layer {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    display: block;
+    background-color: #666666;
+    z-index: 10000;
+}
+
+
+.container {
+	padding-top: 10rem; 
+}
+
+div.radio {
+	padding-left:3rem;
+}

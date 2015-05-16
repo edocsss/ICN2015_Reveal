@@ -5,8 +5,8 @@
 	function Wave() {
 		
 		/** The current dimensions of the screen (updated on resize) */
-		var WIDTH = $('#wave-canvas').width(),
-			HEIGHT = $('#wave-canvas').height();
+		var WIDTH = $('#canvas').width(),
+			HEIGHT = $('#canvas').height();
 		
 		/** Wave settings */
 		var DENSITY = .75;
@@ -33,7 +33,7 @@
 		 * Constructor.
 		 */
 		this.Initialize = function () {
-			canvas = document.getElementById('wave-canvas');
+			canvas = document.getElementById('canvas');
 			console.log(canvas, WIDTH, HEIGHT);
 			
 			if (canvas && canvas.getContext) {
@@ -144,7 +144,6 @@
 
 			// ADJUST THE OFFSET (70)
 			context.drawImage(ship, 30, HEIGHT - ship.height - HEIGHT * (1 - WAVE_HEIGHT_MULTIPLIER) + 70);
-
 
 			context.fillStyle = gradientFill;
 			context.beginPath();

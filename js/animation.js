@@ -1,6 +1,10 @@
 // Initialize Wave animation
-var wave = new Wave();
-wave.initialize();
+var waveController = new WaveController();
+waveController.initialize();
+
+// Initialize Lightning animation
+var lightningController = new LightningController();
+lightningController.initialize();
 
 // Resize canvas event registration
 $(window).resize(resizeCanvas);
@@ -16,10 +20,7 @@ resizeCanvas();
 // Set interval for redrawing canvas
 var timeUpdateInterval = setInterval(drawCanvas, 40);
 
-// drawCanvas();
-
 function resizeCanvas (e) {
-	console.log(111);
 	WIDTH = window.innerWidth;
 	HEIGHT = window.innerHeight;
 
@@ -27,7 +28,7 @@ function resizeCanvas (e) {
 	canvas.height = HEIGHT;
 
 	// Need this because Wave has some private constants
-	wave.canvasResized();
+	waveController.canvasResized();
 }
 
 function drawCanvas () {
@@ -35,6 +36,12 @@ function drawCanvas () {
 	context.clearRect(0, 0, WIDTH, HEIGHT);
 
 	// Draw wave
-	//context.save();
-	wave.drawWave();
+	context.save();
+	waveController.drawWave();
+	context.restore();
+
+	// Draw lightning
+	context.save();
+	lightningController.drawLightning();
+	context.restore();
 }

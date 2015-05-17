@@ -16,11 +16,16 @@ html, body {
     z-index: 10000;
 }
 
-
 .container {
 	padding-top: 10rem; 
 }
 
 div.radio {
-	padding-left:3rem;
+	padding-left: 3rem;
+}
+
+@media (max-width: 767px) {
+    .no-float {
+        float: none;
+    }
 }

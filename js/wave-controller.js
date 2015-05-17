@@ -34,7 +34,6 @@
 		 */
 		this.Initialize = function () {
 			canvas = document.getElementById('canvas');
-			console.log(canvas, WIDTH, HEIGHT);
 			
 			if (canvas && canvas.getContext) {
 				context = canvas.getContext('2d');
@@ -52,6 +51,10 @@
 						mass: 10
 					} );
 				}
+
+				for (var j = 0; j < particles.length; j++) {
+					console.log(particles[j].x, particles[j].y);
+				}
 				
 				$(canvas).mousemove(MouseMove);
 				$(canvas).mousedown(MouseDown);
@@ -65,6 +68,8 @@
 
 				ResizeCanvas();
 			}
+
+			console.log(particles.length);
 		};
 		
 		/**
@@ -140,7 +145,7 @@
 			gradientFill.addColorStop(0.8,'#789abc');
 			gradientFill.addColorStop(1,'#89abcd');
 			
-			context.clearRect(0, 0, WIDTH, HEIGHT);
+			//context.clearRect(0, 0, WIDTH, HEIGHT);
 
 			// ADJUST THE OFFSET (70)
 			context.drawImage(ship, 30, HEIGHT - ship.height - HEIGHT * (1 - WAVE_HEIGHT_MULTIPLIER) + 70);

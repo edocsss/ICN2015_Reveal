@@ -17,21 +17,23 @@
 			</div><!-- /.container-fluid -->
         </nav>
 		<div class="container">
-			<form class="form-horizontal" role="form" method="post" action="send.php">
+			<form data-toggle="validator" class="form-horizontal" role="form" method="post" action="send.php">
 				<div class="form-group"> <!--buyer's name-->
 					<label for="name" class="col-sm-2 control-label">Name</label>
 					<div class="col-xs-8 col-sm-7 col-md-6 col-lg-5 no-float">
 						<input type="text" class="form-control" id="name" name="name" required pattern="^[a-zA-Z0-9 ]+$" 
-						placeholder="First & Last Name" value="">
+						placeholder="First & Last Name" value="" data-error="Please enter your valid name ">
 					</div>
+					<div class="help-block with-errors col-sm-3"></div>
 				</div>
 								
 				<div class="form-group"> <!--buyer's phone number-->
 					<label for="contact" class="col-sm-2 control-label">Contact number</label>
 					<div class="col-xs-8 col-sm-7 col-md-6 col-lg-5 no-float">
 						<input type="tel" class="form-control" id="contact" name="contact" required pattern="^[0-9]{8}$" 
-						placeholder="Valid 8-digits contact number" value="">
+						placeholder="Valid 8-digits contact number" value="" data-error="Your contact number is invalid">
 					</div>
+					<div class="help-block with-errors col-sm-3"></div>
 				</div>
 								
 				<div class="form-group"> <!--buyer's e-mail-->
@@ -39,8 +41,9 @@
 					<div class="col-xs-8 col-sm-7 col-md-6 col-lg-5 no-float">
 						<input type="email" class="form-control" id="email" name="email" 
 						required pattern="^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$" 
-						placeholder="Valid e-mail address" value="">
+						placeholder="Valid e-mail address" value="" data-error="Your e-mail address is invalid">
 					</div>
+					<div class="help-block with-errors col-sm-3"></div>
 				</div>
 				
 				<div class="form-group"> <!--quantity of ticket-->
@@ -110,6 +113,7 @@
 		<script src="../vendor/jquery-ui/jquery-ui.min.js"></script>
         <!--<script src="../vendor/jquery-mobile/jquery.mobile-1.4.5.min.js"></script>-->
 		<script src="form-controller.js"></script>
+		<script src="validator.js"></script>
 		
 	 </body>
 </html>

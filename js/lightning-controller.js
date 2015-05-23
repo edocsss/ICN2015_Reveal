@@ -1,7 +1,7 @@
-LightningController.NO_OF_LIGHTNINGS = 20;
+LightningController.NO_OF_LIGHTNINGS = 12;
 LightningController.BASE_INTERVAL = 2000;
 LightningController.FADE_OUT_INTERVAL = 500;
-LightningController.BASE_LIGHTNING_POSITION = [0.25 * WIDTH, 0.5 * WIDTH, 0.75 * WIDTH];
+LightningController.BASE_LIGHTNING_POSITION = [0.333333 * WIDTH, 0.666667 * WIDTH];
 
 function LightningController () {
 	this.lightnings = [];
@@ -10,7 +10,7 @@ function LightningController () {
 
 LightningController.prototype.initialize = function () {
 	for (var i = 1; i <= LightningController.NO_OF_LIGHTNINGS; i++) {
-		var imageUrl = 'img/Lightning 1.png',
+		var imageUrl = 'img/lightnings/' + i + '.png',
 			img = new Image(imageUrl);
 		
 		img.src = imageUrl;
@@ -26,18 +26,26 @@ LightningController.prototype.initialize = function () {
 
 	// Need a more random timing
 	// Add more setInterval to add more lightning to the canvas
-	var chooseLightning1 = setInterval(this.selectLightning.bind(this), 2000),
-		chooseLightning2 = setInterval(this.selectLightning.bind(this), 2200);
+	var chooseLightning1 = setInterval((function () {
+			this.selectLightning(LightningController.BASE_LIGHTNING_POSITION[0] + Math.sin(2 * Math.PI * Math.random()) * 0.15 * WIDTH );
+		}).bind(this), 2000),
+		
+		chooseLightning2 = setInterval((function () {
+			this.selectLightning(LightningController.BASE_LIGHTNING_POSITION[1] + Math.cos(2 * Math.PI * Math.random()) * 0.15 * WIDTH);
+		}).bind(this), 2500);
 };
 
-LightningController.prototype.selectLightning = function () {
-	var index = Math.round(chance.random() * (LightningController.NO_OF_LIGHTNINGS - 1)),
-		positionX = LightningController.BASE_LIGHTNING_POSITION[Math.round(chance.random() * LightningController.BASE_LIGHTNING_POSITION.length)] + 
-					100 * Math.sin(2 * Math.PI * chance.random());
+LightningController.prototype.selectLightning = function (positionX) {
+	var index = Math.abs(Math.round(Math.random() * 5 * Math.sin(2 * Math.PI * Math.random()) * (LightningController.NO_OF_LIGHTNINGS - 1) / LightningController.NO_OF_LIGHTNINGS));
 
 	// Prevent using the same lightning twice
-	while (this.lightnings[index].opacity > 0) {
-		index = Math.round(chance.random() * (LightningController.NO_OF_LIGHTNINGS - 1));
+	// while (this.lightnings[index].opacity > 0) {
+	// 	index = Math.round(Math.random() * (LightningController.NO_OF_LIGHTNINGS - 1));
+	// 	console.log(index);
+	// }
+
+	if (this.lightnings[index].opacity > 0) {
+		return;
 	}
 
 	/*
@@ -72,10 +80,10 @@ LightningController.prototype.drawLightning = function () {
 
 			// Set opacity & update lightning opacity
 			context.globalAlpha = lightning.opacity;
-			lightning.opacity -= 0.04 + 0.02 * Math.sin(2 * Math.PI * chance.random());
+			lightning.opacity -= 0.04 + 0.02 * Math.sin(2 * Math.PI * Math.random());
 
 			// Draw the lighning
-			context.drawImage(lightning.image, lightning.x, lightning.y);
+			context.drawImage(lightning.image, lightning.x, lightning.y, 160, 320);
 
 			// Restore settings
 			context.restore();

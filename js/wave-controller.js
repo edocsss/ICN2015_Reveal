@@ -38,7 +38,7 @@ WaveController.prototype.initialize = function () {
 			},
 			velocity: {
 				x: 0,
-				y: 1 + chance.random() * 3
+				y: 1 + Math.random() * 3
 			},
 			force: {
 				x: 0,
@@ -49,33 +49,33 @@ WaveController.prototype.initialize = function () {
 	}
 
 	// setInterval variables
-	var twitchInterval1 = setInterval(this.twitch1.bind(this), 1500 + 300 * Math.sin(chance.random())),
-		twitchInterval2 = setInterval(this.twitch2.bind(this), 1000 + 300 * Math.sin(chance.random())),
-		twitchInterval3 = setInterval(this.twitch3.bind(this), 1300 + 700 * Math.sin(chance.random()));
+	var twitchInterval1 = setInterval(this.twitch1.bind(this), 1500 + 300 * Math.sin(Math.random())),
+		twitchInterval2 = setInterval(this.twitch2.bind(this), 1000 + 300 * Math.sin(Math.random())),
+		twitchInterval3 = setInterval(this.twitch3.bind(this), 1300 + 700 * Math.sin(Math.random()));
 };
 
 WaveController.prototype.twitch1 = function () {
 	//this.ms.x = 0;
 	//this.ms.y = 0;
 
-	var forceRange = 3 + chance.random();
-	this.insertImpulse(0.25 * WIDTH + 60 * Math.sin(2 * Math.PI * chance.random()) * chance.random(), 0.05 + (chance.random() * (forceRange * 2) - forceRange));
+	var forceRange = 3 + Math.random();
+	this.insertImpulse(0.25 * WIDTH + 60 * Math.sin(2 * Math.PI * Math.random()) * Math.random(), 0.05 + (Math.random() * (forceRange * 2) - forceRange));
 };
 
 WaveController.prototype.twitch2 = function () {
 	//this.ms.x = 0;
 	//this.ms.y = 0;
 
-	var forceRange = 3 + chance.random();
-	this.insertImpulse(0.5 * WIDTH + 100 * Math.cos(2 * Math.PI * chance.random()) * chance.random(), 0.08 + (chance.random() * (forceRange * 2) - forceRange));
+	var forceRange = 3 + Math.random();
+	this.insertImpulse(0.5 * WIDTH + 100 * Math.cos(2 * Math.PI * Math.random()) * Math.random(), 0.08 + (Math.random() * (forceRange * 2) - forceRange));
 };
 
 WaveController.prototype.twitch3 = function () {
 	//this.ms.x = 0;
 	//this.ms.y = 0;
 
-	var forceRange = 3 + chance.random();
-	this.insertImpulse(0.75 * WIDTH + 75 * Math.sin(2 * Math.PI * chance.random()) * chance.random(), 0.06 + (chance.random() * (forceRange * 2) - forceRange));
+	var forceRange = 3 + Math.random();
+	this.insertImpulse(0.75 * WIDTH + 75 * Math.sin(2 * Math.PI * Math.random()) * Math.random(), 0.06 + (Math.random() * (forceRange * 2) - forceRange));
 };
 
 WaveController.prototype.insertImpulse = function (positionX, forceY) {

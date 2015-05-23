@@ -35,13 +35,15 @@ function drawCanvas () {
 	// Clear canvas
 	context.clearRect(0, 0, WIDTH, HEIGHT);
 
-	// Draw wave
-	context.save();
-	waveController.drawWave();
-	context.restore();
-
 	// Draw lightning
 	context.save();
 	lightningController.drawLightning();
+	context.restore();
+
+	// Draw ship here!!
+
+	// Draw wave
+	context.save();
+	waveController.drawWave();
 	context.restore();
 }

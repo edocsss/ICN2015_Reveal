@@ -1,4 +1,3 @@
-var chance = new Chance();
 var slideProperties = {
     n: 4,
     curSlideId: 0,

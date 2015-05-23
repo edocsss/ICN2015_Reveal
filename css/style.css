@@ -25,32 +25,13 @@ html, body {
 }
 
 .slides {
+    background-color: transparent;
     position: absolute;
     margin-bottom: 0;
     width: 100%;
     height: 100%;
     border-radius: 0 !important;
     padding: 10em 0 0 0 !important;/*for visibility of content*/
-}
-
-#content2 {
-    background-color: red;
-}
-
-#content3 {
-    background-color: green;
-}
-
-#content4 {
-    background-color: blue; 
-}
-
-#content5 {
-    background-color: orange;
-}
-
-#content6 {
-    background-color: purple;
 }
 
 .canvas-container {

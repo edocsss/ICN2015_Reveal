@@ -11,9 +11,9 @@ function LightningController () {
 LightningController.prototype.initialize = function () {
 	for (var i = 1; i <= LightningController.NO_OF_LIGHTNINGS; i++) {
 		var imageUrl = 'img/lightnings/' + i + '.png',
-			img = new Image(imageUrl);
-		
-		img.src = imageUrl;
+			img = new Image();
+
+		img.src = imageUrl;		
 		this.lightnings.push({
 			image: img,
 			opacity: 0,

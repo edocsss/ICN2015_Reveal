@@ -6,7 +6,7 @@ WaveController.AOE = 100;
 WaveController.DETAIL = Math.round(WIDTH / 60);
 WaveController.WATER_DENSITY = 1.07;
 WaveController.AIR_DENSITY = 1.02;
-WaveController.WAVE_HEIGHT_MULTIPLIER = 0.65;
+WaveController.WAVE_HEIGHT_MULTIPLIER = 0.735;
 
 function WaveController () {
 	this.mouseIsDown = false;
@@ -58,7 +58,7 @@ WaveController.prototype.twitch1 = function () {
 	//this.ms.x = 0;
 	//this.ms.y = 0;
 
-	var forceRange = 3 + Math.random();
+	var forceRange = 2 + Math.random();
 	this.insertImpulse(0.25 * WIDTH + 60 * Math.sin(2 * Math.PI * Math.random()) * Math.random(), 0.05 + (Math.random() * (forceRange * 2) - forceRange));
 };
 
@@ -66,7 +66,7 @@ WaveController.prototype.twitch2 = function () {
 	//this.ms.x = 0;
 	//this.ms.y = 0;
 
-	var forceRange = 3 + Math.random();
+	var forceRange = 2 + Math.random();
 	this.insertImpulse(0.5 * WIDTH + 100 * Math.cos(2 * Math.PI * Math.random()) * Math.random(), 0.08 + (Math.random() * (forceRange * 2) - forceRange));
 };
 
@@ -74,7 +74,7 @@ WaveController.prototype.twitch3 = function () {
 	//this.ms.x = 0;
 	//this.ms.y = 0;
 
-	var forceRange = 3 + Math.random();
+	var forceRange = 2 + Math.random();
 	this.insertImpulse(0.75 * WIDTH + 75 * Math.sin(2 * Math.PI * Math.random()) * Math.random(), 0.06 + (Math.random() * (forceRange * 2) - forceRange));
 };
 
@@ -96,12 +96,11 @@ WaveController.prototype.drawWave = function () {
 		next;
 	
 	gradientFill.addColorStop(0,'#FFF');
-	// gradientFill.addColorStop(0.2,'#123456');
-	// gradientFill.addColorStop(0.4,'#345678');
-	// gradientFill.addColorStop(0.6,'#56789a');
-	// gradientFill.addColorStop(0.8,'#789abc');
-	// gradientFill.addColorStop(0.25,'#021B35');
-	gradientFill.addColorStop(0.75,'#010f1d');
+	gradientFill.addColorStop(0.2,'#123456');
+	gradientFill.addColorStop(0.4,'#345678');
+	gradientFill.addColorStop(0.6,'#56789a');
+	gradientFill.addColorStop(0.8,'#789abc');
+	gradientFill.addColorStop(0.1,'#010f1d');
 
 	context.fillStyle = gradientFill;
 	context.beginPath();

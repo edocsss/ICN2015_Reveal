@@ -95,12 +95,13 @@ WaveController.prototype.drawWave = function () {
 		previous,
 		next;
 	
-	gradientFill.addColorStop(0,'#012345');
-	gradientFill.addColorStop(0.2,'#123456');
-	gradientFill.addColorStop(0.4,'#345678');
-	gradientFill.addColorStop(0.6,'#56789a');
-	gradientFill.addColorStop(0.8,'#789abc');
-	gradientFill.addColorStop(1,'#89abcd');
+	gradientFill.addColorStop(0,'#FFF');
+	// gradientFill.addColorStop(0.2,'#123456');
+	// gradientFill.addColorStop(0.4,'#345678');
+	// gradientFill.addColorStop(0.6,'#56789a');
+	// gradientFill.addColorStop(0.8,'#789abc');
+	// gradientFill.addColorStop(0.25,'#021B35');
+	gradientFill.addColorStop(0.75,'#010f1d');
 
 	context.fillStyle = gradientFill;
 	context.beginPath();

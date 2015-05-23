@@ -18,7 +18,7 @@ LightningController.prototype.initialize = function () {
 			image: img,
 			opacity: 0,
 			x: 0,
-			y: 0
+			y: $(".navbar").height()
 		});
 
 		this.lastIndex.push(0);

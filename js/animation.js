@@ -1,3 +1,8 @@
+// Seed random
+Math.seedrandom('added entropy.', {
+	entropy: true
+});
+
 // Initialize Wave animation
 var waveController = new WaveController();
 waveController.initialize();

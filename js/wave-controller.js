@@ -89,18 +89,23 @@ WaveController.prototype.insertImpulse = function (positionX, forceY) {
 };
 
 WaveController.prototype.drawWave = function () {
-	var gradientFill = context.createLinearGradient(WIDTH * 0.5, HEIGHT * 0.2, WIDTH * 0.5, HEIGHT),
+	var gradientFill = context.createLinearGradient(WIDTH * 0.5, HEIGHT * WaveController.WAVE_HEIGHT_MULTIPLIER, WIDTH * 0.5, HEIGHT),
 		len = this.particles.length,
 		current,
 		previous,
 		next;
 	
-	gradientFill.addColorStop(0,'#FFF');
-	gradientFill.addColorStop(0.2,'#123456');
-	gradientFill.addColorStop(0.4,'#345678');
-	gradientFill.addColorStop(0.6,'#56789a');
-	gradientFill.addColorStop(0.8,'#789abc');
-	gradientFill.addColorStop(0.1,'#010f1d');
+	gradientFill.addColorStop(0,'#6180B5');
+	// gradientFill.addColorStop(0.1,'#4B6694');
+	// gradientFill.addColorStop(0.2,'#4B6694');
+	// gradientFill.addColorStop(0.3,'#4B6694');
+	// gradientFill.addColorStop(0.4,'#4B6694');
+	// gradientFill.addColorStop(0.5,'#4B6694');
+	// gradientFill.addColorStop(0.6,'#4B6694');
+	// gradientFill.addColorStop(0.7,'#3D557D');
+	// gradientFill.addColorStop(0.8,'#32476B');
+	// gradientFill.addColorStop(0.9,'#4B6694');
+	gradientFill.addColorStop(1,'#233656');
 
 	context.fillStyle = gradientFill;
 	context.beginPath();

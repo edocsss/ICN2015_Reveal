@@ -1,7 +1,7 @@
 LightningController.NO_OF_LIGHTNINGS = 12;
 LightningController.BASE_INTERVAL = 2000;
 LightningController.FADE_OUT_INTERVAL = 500;
-LightningController.BASE_LIGHTNING_POSITION = [0.333333 * WIDTH, 0.666667 * WIDTH];
+LightningController.BASE_LIGHTNING_POSITION = [0.25 * WIDTH, 0.666667 * WIDTH];
 
 function LightningController () {
 	this.lightnings = [];
@@ -27,37 +27,20 @@ LightningController.prototype.initialize = function () {
 	// Need a more random timing
 	// Add more setInterval to add more lightning to the canvas
 	var chooseLightning1 = setInterval((function () {
-			this.selectLightning(LightningController.BASE_LIGHTNING_POSITION[0] + Math.sin(2 * Math.PI * Math.random()) * 0.15 * WIDTH );
-		}).bind(this), 2000),
-		
-		chooseLightning2 = setInterval((function () {
+			this.selectLightning(LightningController.BASE_LIGHTNING_POSITION[0] + Math.sin(2 * Math.PI * Math.random()) * 0.1 * WIDTH );
+		}).bind(this), 3765 + 2000 * Math.cos(2 * Math.PI * Math.random()));
+
+	var	chooseLightning2 = setInterval((function () {
 			this.selectLightning(LightningController.BASE_LIGHTNING_POSITION[1] + Math.cos(2 * Math.PI * Math.random()) * 0.15 * WIDTH);
-		}).bind(this), 2500);
+		}).bind(this), 3487 + 2000 * Math.sin(2 * Math.PI * Math.random()));
 };
 
 LightningController.prototype.selectLightning = function (positionX) {
 	var index = Math.abs(Math.round(Math.random() * 5 * Math.sin(2 * Math.PI * Math.random()) * (LightningController.NO_OF_LIGHTNINGS - 1) / LightningController.NO_OF_LIGHTNINGS));
 
-	// Prevent using the same lightning twice
-	// while (this.lightnings[index].opacity > 0) {
-	// 	index = Math.round(Math.random() * (LightningController.NO_OF_LIGHTNINGS - 1));
-	// 	console.log(index);
-	// }
-
 	if (this.lightnings[index].opacity > 0) {
 		return;
 	}
-
-	/*
-	// Although unlikely to happen because of the BASE_INTERVAL,
-	// If there is a lightning which is still visible, do not select any lightning
-	for (var i = 0; i < LightningController.NO_OF_LIGHTNINGS; i++) {
-		lightning = this.lightnings[i];
-
-		if (lightning.opacity > 0) return;
-	}
-
-	*/
 
 	// Make that particular lightning "visible"
 	this.lightnings[index].opacity = 1;

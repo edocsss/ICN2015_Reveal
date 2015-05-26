@@ -137,7 +137,7 @@
 
 			
 			// Canvas color -> change to a darker color later
-			var gradientFill = context.createLinearGradient(WIDTH * 0.5, HEIGHT * 0.2, WIDTH * 0.5, HEIGHT);
+			var gradientFill = context.createLinearGradient(WIDTH * 0.5, HEIGHT * WaveController.WAVE_HEIGHT_MULTIPLIER, WIDTH * 0.5, HEIGHT);
 			gradientFill.addColorStop(0,'#012345');
 			gradientFill.addColorStop(0.2,'#123456');
 			gradientFill.addColorStop(0.4,'#345678');

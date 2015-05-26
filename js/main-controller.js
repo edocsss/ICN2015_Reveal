@@ -1,20 +1,24 @@
 var slideProperties = {
-    n: 4,
+    n: 5,
     curSlideId: 0,
     slideListener: true,
     footer: {
         selector: $('#footer'),
         visibility: true
-    }
+    },
+    activeBulletMapping: [-1, 0, 1, 3, 4]
 };
 
 slideProperties.checkActiveLink = function (targetSlide) {
+    var targetBullet = this.activeBulletMapping[targetSlide];
+    console.log(targetBullet, targetSlide);
+
     $(".nav").find(".active").removeClass('active');
-    if (targetSlide === 0) {
+    if (targetSlide === 0 || targetBullet === -1) {
         return;
     }
 
-    $(".nav > li > a:eq(" + (targetSlide - 1) + ")").parent().addClass('active');
+    $(".nav > li > a:eq(" + targetBullet + ")").parent().addClass('active');
 };
 
 slideProperties.footer.hide = function () {

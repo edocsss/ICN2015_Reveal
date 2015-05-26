@@ -1,7 +1,7 @@
-// Seed random
-Math.seedrandom('added entropy.', {
-	entropy: true
-});
+// // Seed random
+// Math.seedrandom('dkasjhdn akjshdquy ioqueyw qoie yuniqowuye nqioeyu nqieywu nqioeyu nqioeyu nqioywue nqioywue nqwe', {
+// 	entropy: true
+// });
 
 // Initialize Wave animation
 var waveController = new WaveController();

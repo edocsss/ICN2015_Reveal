@@ -5,19 +5,36 @@ html, body {
     color: #DADADA;
 }
 
+a:hover {
+    background-color: none;
+}
+
 .navbar {
     background-color: #010f1d;
+    color: #DADADA;
     border: none;
 }
 
-.navbar, .navbar-nav > li > a, .navbar-brand {
-    color: #DADADA !important;
-    font-size: 1.1em;
+.navbar-default .navbar-nav > li > a {
+    color: #DADADA;
+    font-size: 2.4rem;
     font-weight: bold;
 }
 
 .navbar-brand {
     padding-left: 25px;
+}
+
+.navbar-default .navbar-nav > li > a:active,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #DADADA;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > li > a:hover {
+    background-color: transparent;
+    color: #EED000;
 }
 
 .loading-layer {
@@ -64,4 +81,16 @@ html, body {
     margin: 10px 20px 10px 0;
     height: 40px;
     width: auto;
+}
+
+@media all and (min-width: 768px) {
+    .navbar .navbar-nav {
+      display: inline-block;
+      float: none;
+      vertical-align: top;
+    }
+
+    .navbar .navbar-collapse {
+      text-align: center;
+    }
 }

@@ -3,12 +3,18 @@
 // 	entropy: true
 // });
 
+// Mersenne Twister
+var r = new MersenneTwister();
+
 // Initialize Wave animation
 var waveController = new WaveController();
 waveController.initialize();
 
+// Initialize Flash animation
+var flash = new Flash();
+
 // Initialize Lightning animation
-var lightningController = new LightningController();
+var lightningController = new LightningController(flash);
 lightningController.initialize();
 
 // Resize canvas event registration
@@ -43,6 +49,11 @@ function drawCanvas () {
 	// Draw lightning
 	context.save();
 	lightningController.drawLightning();
+	context.restore();
+
+	// Draw flash
+	context.save();
+	flash.drawFlash();
 	context.restore();
 
 	// Draw ship here!!

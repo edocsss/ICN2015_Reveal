@@ -10,15 +10,16 @@ var slideProperties = {
 };
 
 slideProperties.checkActiveLink = function (targetSlide) {
-    var targetBullet = this.activeBulletMapping[targetSlide];
-    console.log(targetBullet, targetSlide);
+    // var targetBullet = this.activeBulletMapping[targetSlide];
+    // console.log(targetBullet, targetSlide);
 
     $(".nav").find(".active").removeClass('active');
-    if (targetSlide === 0 || targetBullet === -1) {
+    if (targetSlide === 0 /* || targetBullet === -1 */) {
         return;
     }
 
-    $(".nav > li > a:eq(" + targetBullet + ")").parent().addClass('active');
+    // $(".nav > li > a:eq(" + targetBullet + ")").parent().addClass('active');
+    $(".nav > li > a:eq(" + (targetSlide - 1) + ")").parent().addClass('active');
 };
 
 slideProperties.footer.hide = function () {

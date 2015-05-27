@@ -65,6 +65,20 @@ a:hover {
     padding: 75px 0 0 0 !important;/*for visibility of content*/
 }
 
+#synopsis {
+	margin-top: 70px;
+}
+
+#synopsis-title {
+	color:#EED000;
+	font-size:48px
+}
+
+#synopsis-text {
+	font-size:12px;
+	margin-left:10px
+}
+
 .canvas-container {
     position: fixed;
     width: 100%;

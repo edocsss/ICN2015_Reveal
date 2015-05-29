@@ -1,8 +1,3 @@
-// // Seed random
-// Math.seedrandom('dkasjhdn akjshdquy ioqueyw qoie yuniqowuye nqioeyu nqieywu nqioeyu nqioeyu nqioywue nqioywue nqwe', {
-// 	entropy: true
-// });
-
 // Mersenne Twister
 var r = new MersenneTwister();
 
@@ -16,6 +11,12 @@ var flash = new Flash();
 // Initialize Lightning animation
 var lightningController = new LightningController(flash);
 lightningController.initialize();
+
+// Background image
+var background = new Image();
+background.src = "img/background.svg";
+
+console.log(background, background.src);
 
 // Resize canvas event registration
 $(window).resize(resizeCanvas);
@@ -45,6 +46,11 @@ function resizeCanvas (e) {
 function drawCanvas () {
 	// Clear canvas
 	context.clearRect(0, 0, WIDTH, HEIGHT);
+
+	// Draw background
+	// context.save();
+	// context.drawImage(background, 0, 0, WIDTH, HEIGHT);
+	// context.restore();
 
 	// Draw lightning
 	context.save();

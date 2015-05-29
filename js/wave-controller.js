@@ -6,7 +6,7 @@ WaveController.AOE = 100;
 WaveController.DETAIL = Math.round(WIDTH / 60);
 WaveController.WATER_DENSITY = 1.07;
 WaveController.AIR_DENSITY = 1.02;
-WaveController.WAVE_HEIGHT_MULTIPLIER = 0.735;
+WaveController.WAVE_HEIGHT_MULTIPLIER = 0.85;
 
 function WaveController () {
 	this.mouseIsDown = false;
@@ -58,7 +58,7 @@ WaveController.prototype.twitch1 = function () {
 	//this.ms.x = 0;
 	//this.ms.y = 0;
 
-	var forceRange = 2 + r.random();
+	var forceRange = 1.5 + r.random();
 	this.insertImpulse(0.25 * WIDTH + 60 * Math.sin(2 * Math.PI * r.random()) * r.random(), 0.05 + (r.random() * (forceRange * 2) - forceRange));
 };
 
@@ -66,7 +66,7 @@ WaveController.prototype.twitch2 = function () {
 	//this.ms.x = 0;
 	//this.ms.y = 0;
 
-	var forceRange = 2 + r.random();
+	var forceRange = 1.5 + r.random();
 	this.insertImpulse(0.5 * WIDTH + 100 * Math.cos(2 * Math.PI * r.random()) * r.random(), 0.08 + (r.random() * (forceRange * 2) - forceRange));
 };
 
@@ -74,7 +74,7 @@ WaveController.prototype.twitch3 = function () {
 	//this.ms.x = 0;
 	//this.ms.y = 0;
 
-	var forceRange = 2 + r.random();
+	var forceRange = 1.5 + r.random();
 	this.insertImpulse(0.75 * WIDTH + 75 * Math.sin(2 * Math.PI * r.random()) * r.random(), 0.06 + (r.random() * (forceRange * 2) - forceRange));
 };
 

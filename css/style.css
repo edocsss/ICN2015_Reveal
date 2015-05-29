@@ -5,20 +5,47 @@ html, body {
     color: #DADADA;
 }
 
+body {
+    background-image: url("../img/background.svg");
+    background-repeat: repeat;
+}
+
+canvas {
+    background-color: transparent;
+}
+
 a:hover {
-    background-color: none;
+    background-color: transparent;
 }
 
 .navbar {
-    background-color: #010f1d;
+    /*background-color: #010f1d;*/
+    background-color: transparent;
     color: #DADADA;
     border: none;
+}
+
+.navbar-fixed-top {
+    background-color: transparent;
+}
+
+.navbar-brand {
+    padding-top: 10px;
+    margin-right: 10px;
+}
+
+.navbar-default .navbar-nav > li {
+    margin-right: 20px;
 }
 
 .navbar-default .navbar-nav > li > a {
     color: #DADADA;
     font-size: 2.4rem;
     font-weight: bold;
+    padding-top: 27px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
 }
 
 .navbar-brand {
@@ -34,7 +61,8 @@ a:hover {
 .navbar-default .navbar-nav > .active > a:focus,
 .navbar-default .navbar-nav > li > a:hover {
     background-color: transparent;
-    color: #EED000;
+    color: #EED000; /* If you change this, do not forget to look for "color:#EED000" in bootstrap.min.css and change with the same color as the hover color */
+    border-bottom: solid #EED000 2px;
 }
 
 .loading-layer {
@@ -52,7 +80,8 @@ a:hover {
     width: 100%;
     padding-left: 0;
     padding-right: 0;
-    background-color: #010f1d;
+    /*background-color: #010f1d;*/
+    background-color: transparent;
 }
 
 .slides {
@@ -91,9 +120,13 @@ a:hover {
     height: 100%;
 }
 
+#footer {
+    min-height: 10px;
+}
+
 .social-media-icon {
     margin: 10px 20px 10px 0;
-    height: 40px;
+    height: 25px;
     width: auto;
 }
 

@@ -11,7 +11,7 @@ Flash.prototype.drawFlash = function () {
 		context.fillRect(0, 0, WIDTH, HEIGHT);
 
 		// Update information
-		this.opacity -= 0.2;
+		this.opacity -= 0.1;
 		this.justFlash = false;
 	}
 };

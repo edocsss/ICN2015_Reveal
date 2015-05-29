@@ -1,5 +1,5 @@
 var slideProperties = {
-    n: 5,
+    n: 6,
     curSlideId: 0,
     slideListener: true,
     footer: {
@@ -38,9 +38,9 @@ slideProperties.changeSlide = function (targetSlide) {
         return;
     }
 
-    if (targetSlide === this.n - 1 && this.footer.visibility === true) {
+    if (targetSlide >= this.n - 2 && this.footer.visibility === true) {
         this.footer.hide();
-    } else if (targetSlide !== this.n - 1 && this.footer.visibility === false) {
+    } else if (targetSlide < this.n - 2 && this.footer.visibility === false) {
         this.footer.show();
     }
     
@@ -70,6 +70,11 @@ slideProperties.enableScroll = function () {
 $(document).ready(function () {
 	// Hiding loading layer on document ready
     $(".loading-layer").fadeOut('500');
+    
+    // In case the slideListener stuck (don't know why)
+    setInterval(function () {
+        slideProperties.slideListener = true;
+    }, 200);
 
     $(document).on("DOMMouseScroll mousewheel", function (e) {
         if (slideProperties.slideListener) {
@@ -119,6 +124,7 @@ $(document).ready(function () {
         var nextSlide = parseInt(this.getAttribute("data-slide"));
 
         if (slideProperties.slideListener) {
+            console.log("CLICK IN");
             slideProperties.slideListener = false;
             slideProperties.changeSlide(nextSlide);
         }

@@ -7,6 +7,8 @@ function LightningController (flash) {
 	this.lightnings = [];
 	this.lastIndex = [];
 	this.flash = flash;
+	this.n = 0;
+	this.play = false;
 }
 
 LightningController.prototype.initialize = function () {
@@ -14,13 +16,8 @@ LightningController.prototype.initialize = function () {
 		var imageUrl = 'img/lightnings/' + i + '.png',
 			img = new Image();
 
-		img.src = imageUrl;		
-		this.lightnings.push({
-			image: img,
-			opacity: 0,
-			x: 0,
-			y: $(".navbar").height()
-		});
+		img.src = imageUrl;
+		img.onload = this.onLoadHandler.call(this, img);
 	}
 
 	// Need a r random timing
@@ -41,63 +38,87 @@ LightningController.prototype.initialize = function () {
 		}).bind(this), 5000);
 };
 
-LightningController.prototype.selectLightning = function (positionX) {
-	var index = Math.floor(r.random() * LightningController.NO_OF_LIGHTNINGS);
-	// var index = Math.abs(Math.round(r.random() * 5 * Math.sin(2 * Math.PI * r.random()) * (LightningController.NO_OF_LIGHTNINGS - 1) / LightningController.NO_OF_LIGHTNINGS))
+LightningController.prototype.onLoadHandler = function (img) {
+	this.lightnings.push({
+		image: img,
+		opacity: 0,
+		x: 0,
+		y: 0, // $(".navbar").height(),
+		width: 240,
+		height: HEIGHT * WaveController.WAVE_HEIGHT_MULTIPLIER + 50 * Math.sin(2 * Math.PI * r.random())
+	});
 
+	(this.n)++;
+
+	if (this.n >= 5) {
+		this.play = true;
+	}
+
+	console.log(this.n);
+};
+
+LightningController.prototype.selectLightning = function (positionX) {
+	var index = Math.floor(r.random() * this.n);
+	// var index = Math.abs(Math.round(r.random() * 5 * Math.sin(2 * Math.PI * r.random()) * (LightningController.NO_OF_LIGHTNINGS - 1) / LightningController.NO_OF_LIGHTNINGS))
+	console.log(WIDTH);
 	if (this.lastIndex.indexOf(index) >= 0 || this.lightnings[index].opacity > 0) {
 		return;
 	}
 
 	// Make that particular lightning "visible"
-	this.lightnings[index].opacity = 1;
+	this.lightnings[index].opacity = 0.8;
 
 	// Set up where the lightning should be drawn horizontally
 	this.lightnings[index].x = positionX;
+
+	// Randomize the lightning height
+	this.lightnings[index].height = HEIGHT * WaveController.WAVE_HEIGHT_MULTIPLIER + 50 * Math.sin(2 * Math.PI * r.random());
 
 	// Prevent this index from being chosen for the next 5s
 	this.lastIndex.push(index);
 
 	// Set flash
 	if (!this.flash.justFlash) {
-		this.flash.opacity = 0.5;
+		this.flash.opacity = 0.3;
 	}
 };
 
 LightningController.prototype.drawLightning = function () {
 	var lightning;
 
-	for (var i = 0; i < LightningController.NO_OF_LIGHTNINGS; i++) {
-		// positionX : Harus di save di lightnings nya -> kalo opacity > 0 = jangan diubah (krn harus ditempat sebelumnya lagi)
-		lightning = this.lightnings[i];
+	if (this.play) {
+		for (var i = 0; i < LightningController.NO_OF_LIGHTNINGS; i++) {
+			// positionX : Harus di save di lightnings nya -> kalo opacity > 0 = jangan diubah (krn harus ditempat sebelumnya lagi)
+			lightning = this.lightnings[i];
 
-/*		// Tell flash to "flash" when there is an incoming lightning
-		if (lightning.opacity >= 1 && !this.flash.justFlash) {
-			// Update flash layer opacity if and only if there is a lightning
-			this.flash.opacity = 0.8;
-			this.flash.justFlash = true;
-		}*/
+	/*		// Tell flash to "flash" when there is an incoming lightning
+			if (lightning.opacity >= 1 && !this.flash.justFlash) {
+				// Update flash layer opacity if and only if there is a lightning
+				this.flash.opacity = 0.8;
+				this.flash.justFlash = true;
+			}*/
 
-		// Only draw "visible" lightning
-		if (lightning.opacity > 0) {
-			// Save settings
-			context.save();
+			// Only draw "visible" lightning
+			if (lightning.opacity > 0) {
+				// Save settings
+				context.save();
 
-			// Set opacity & update lightning opacity
-			context.globalAlpha = lightning.opacity;
-			lightning.opacity -= 0.04 + 0.02 * Math.sin(2 * Math.PI * r.random());
+				// Set opacity & update lightning opacity
+				context.globalAlpha = lightning.opacity;
+				lightning.opacity -= 0.04 + 0.02 * Math.sin(2 * Math.PI * r.random());
 
-			// Draw the lighning
-			context.save();
-			context.shadowColor = "#0AF6F6";
-			context.shadowBlur = 10;
-			context.drawImage(lightning.image, lightning.x, lightning.y, 160, 320);
-			context.restore();
+				// Draw the lighning
+				context.save();
+				context.shadowColor = "#0AF6F6";
+				context.shadowBlur = 10;
+				context.drawImage(lightning.image, lightning.x, lightning.y, lightning.width, lightning.height);
+				context.restore();
 
-			// Restore settings
-			context.restore();
-		} else {
-			lightning.opacity = 0;
+				// Restore settings
+				context.restore();
+			} else {
+				lightning.opacity = 0;
+			}
 		}
 	}
 };

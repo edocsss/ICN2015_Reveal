@@ -71,10 +71,10 @@ $(document).ready(function () {
 	// Hiding loading layer on document ready
     $(".loading-layer").fadeOut('500');
     
-    // In case the slideListener stuck (don't know why)
-    setInterval(function () {
-        slideProperties.slideListener = true;
-    }, 200);
+    // // In case the slideListener stuck (don't know why)
+    // setInterval(function () {
+    //     slideProperties.slideListener = true;
+    // }, 500);
 
     $(document).on("DOMMouseScroll mousewheel", function (e) {
         if (slideProperties.slideListener) {

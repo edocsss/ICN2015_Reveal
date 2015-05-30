@@ -1,4 +1,4 @@
-LightningController.NO_OF_LIGHTNINGS = 20;
+LightningController.NO_OF_LIGHTNINGS = 16;
 LightningController.BASE_INTERVAL = 2000;
 LightningController.FADE_OUT_INTERVAL = 500;
 LightningController.BASE_LIGHTNING_POSITION = [0.25 * WIDTH, 0.666667 * WIDTH];
@@ -13,7 +13,7 @@ function LightningController (flash) {
 
 LightningController.prototype.initialize = function () {
 	for (var i = 1; i <= LightningController.NO_OF_LIGHTNINGS; i++) {
-		var imageUrl = 'img/lightnings/' + i + '.png',
+		var imageUrl = 'img/lightnings/petir' + i + '.png',
 			img = new Image();
 
 		img.src = imageUrl;
@@ -44,7 +44,7 @@ LightningController.prototype.onLoadHandler = function (img) {
 		opacity: 0,
 		x: 0,
 		y: 0, // $(".navbar").height(),
-		width: 240,
+		width: 180,
 		height: HEIGHT * WaveController.WAVE_HEIGHT_MULTIPLIER + 50 * Math.sin(2 * Math.PI * r.random())
 	});
 
@@ -122,3 +122,7 @@ LightningController.prototype.drawLightning = function () {
 		}
 	}
 };
+
+LightningController.prototype.canvasResized = function () {
+	LightningController.BASE_LIGHTNING_POSITION = [0.25 * WIDTH, 0.666667 * WIDTH];
+}

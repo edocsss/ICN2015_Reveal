@@ -41,6 +41,9 @@ function resizeCanvas (e) {
 
 	// Need this because Wave has some private constants
 	waveController.canvasResized();
+
+	// Update BASE_LIGHTNING_POSITION for LightningController
+	lightningController.canvasResized();
 }
 
 function drawCanvas () {

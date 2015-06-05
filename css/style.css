@@ -6,17 +6,36 @@ html, body {
 }
 
 body {
-    background-image: url("../img/background.svg");
+    /*background-image: url("../img/background.svg");*/
     /*background-image: url("../img/a.svg");*/
-    background-repeat: repeat;
+    background-repeat: no-repeat;
+    opacity: 0;
 }
 
 canvas {
     background-color: transparent;
 }
 
+.loading-logo {
+    width: 47%;
+    height: auto;
+    opacity: 0;
+}
+
+.loading-layer {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    display: block;
+    z-index: 10000;
+}
+
 a:hover {
     background-color: transparent;
+}
+
+.main-container {
+    opacity: 0;
 }
 
 .navbar {
@@ -72,16 +91,7 @@ a:hover {
     border-bottom: solid #EED000 2px;
 }
 
-.loading-layer {
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    display: block;
-    background-color: #666666;
-    z-index: 10000;
-}
-
-#container {
+#content-container {
     /* width: 3000px; */
     height: 100%;
     width: 100%;

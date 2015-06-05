@@ -6,8 +6,16 @@
 
         <!-- REDIRECT FOR MOBILE PHONE -->
         <script type="text/javascript">
-            if (screen.width < 768 || screen.height < 450) {
+            window.onresize = function () {
+                if (screen.width < 800 || screen.height < 450) {
+                   window.location = "mobile.html";
+                    alert("Please open this website on laptop or desktop!");
+                }
+            };
+
+            if (screen.width < 800 || screen.height < 450) {
                 window.location = "mobile.html";
+                alert("Please open this website on laptop or desktop!");
             }
         </script>
 
@@ -16,98 +24,103 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
-        <div class="loading-layer"></div>
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <div class="container-fluid">
-                <!-- Brand and toggle get grouped for better mobile display -->
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#" data-slide="0">
-                        <img src="img/logo/logonilamalt_invert_websize.png" class="logo">
+        <div class="loading-layer">
+            <img src="img/logo/loading-logo.png" class="loading-logo center-block text-center">
+        </div>
+        
+        <div class="main-container">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#" data-slide="0">
+                            <img src="img/logo/logonilamalt_invert_websize.png" class="logo">
+                        </a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class=""><a href="#" data-slide="1">SYNOPSIS</a></li>
+                            <li class=""><a href="#" data-slide="2">CASTS</a></li>
+                            <li class=""><a href="#" data-slide="3">HISTORY</a></li>
+                            <li class=""><a href="#" data-slide="4">SPONSORS</a></li>
+                            <li class=""><a href="#" data-slide="5">BUY TICKET!</a></li>
+
+                            <!-- <li class=""><a href="#" data-slide="1">SYNOPSIS</a></li>
+                            <li class=""><a href="#" data-slide="2">CASTS</a></li>
+                            <li class="">
+                                <a href="#" data-slide="0">
+                                    <div>
+                                        <img src="img/logo/loading-logo.png" style="height:120px; width: 120px">
+                                    </div>
+                                </a>
+                            </li>
+                            <li class=""><a href="#" data-slide="3">HISTORY</a></li>
+                            <li class=""><a href="#" data-slide="4">SPONSORS</a></li> -->
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+
+            <div class="canvas-container">
+                <canvas id="canvas"></canvas>
+            </div>
+
+            <div id="content-container" class="container-fluid">
+                <div class="jumbotron slides">
+        			<div class="col-xs-12 text-center" style="margin-top: 100px">
+                        <p>
+                            NILAM a musical<br>
+                            12 SEPTEMBER<br>
+                            NLB
+                        </p>
+                    </div>
+    			</div>
+                <div class="jumbotron slides">
+    				<div class="col-xs-offset-6 col-xs-12 col-sm-6 col-md-6 col-lg-5" id="synopsis"><!--for border if needed-->
+    					<div id="synopsis-title">
+    						SYNOPSIS
+    					</div>
+    					<p id="synopsis-text">
+    						Angkara centers on the life of <strong>Ken Arok</strong>, 
+    						a young thug determined to be more than just a feather in the air. 
+    						Under the tutelage of an ascetic named <strong>Lohgawe</strong>, 
+    						Arok pursues his dream to become the reformer of his society and 
+    						his love of a lifetime,<strong> Ken Dedes</strong>, the beautiful
+    						wife of his superior, local chieftain <strong>Tunggul Ametung</strong>.
+    						His thirst for power involves those around him, including an esteemed 
+    						keris bladesmith, <strong>Mpu Gandring</strong>, his best friend and 
+    						fellow guard, <strong>Kebo Ijo</strong>, and Kebo Ijo's wife, 
+    						<strong>Sasmi</strong>.
+    					</p>
+    			</div>
+                <div class="jumbotron slides"></div>
+                <div class="jumbotron slides"></div>
+                <div class="jumbotron slides"></div>
+                <div class="jumbotron slides"></div>
+            </div>
+
+            <nav id="footer" class="navbar navbar-default navbar-fixed-bottom">
+                <div class="container-fluid">
+                    <a href="http://facebook.com" target="_blank">
+                        <img src="img/social-media/FB-f-Logo__blue_57.png" class="social-media-icon navbar-text pull-right">
                     </a>
-                </div>
-
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li class=""><a href="#" data-slide="1">SYNOPSIS</a></li>
-                        <li class=""><a href="#" data-slide="2">CASTS</a></li>
-                        <li class=""><a href="#" data-slide="3">HISTORY</a></li>
-                        <li class=""><a href="#" data-slide="4">SPONSORS</a></li>
-                        <li class=""><a href="#" data-slide="5">BUY TICKET!</a></li>
-
-                        <!-- <li class=""><a href="#" data-slide="1">SYNOPSIS</a></li>
-                        <li class=""><a href="#" data-slide="2">CASTS</a></li>
-                        <li class="">
-                            <a href="#" data-slide="0">
-                                <div>
-                                    <img src="img/logo/loading-logo.png" style="height:120px; width: 120px">
-                                </div>
-                            </a>
-                        </li>
-                        <li class=""><a href="#" data-slide="3">HISTORY</a></li>
-                        <li class=""><a href="#" data-slide="4">SPONSORS</a></li> -->
-                    </ul>
-                </div><!-- /.navbar-collapse -->
-            </div><!-- /.container-fluid -->
-        </nav>
-
-        <div class="canvas-container">
-            <canvas id="canvas"></canvas>
+                    <a href="http://twitter.com" target="_blank">
+                        <img src="img/social-media/Twitter_logo_blue.png" class="social-media-icon navbar-text pull-right">
+                    </a>
+                    <a href="http://youtube.com" target="_blank">
+                        <img src="img/social-media/YouTube-social-icon_red_48px.png" class="social-media-icon pull-right">
+                    </a>
+                </div><!-- /.container-fluid -->
+            </nav>
         </div>
-
-        <div id="container" class="container-fluid">
-            <div class="jumbotron slides">
-    			<div class="col-xs-12 text-center" style="margin-top: 100px">
-                    <p>
-                        NILAM a musical<br>
-                        12 SEPTEMBER<br>
-                        NLB
-                    </p>
-                </div>
-			</div>
-            <div class="jumbotron slides">
-				<div class="col-xs-offset-6 col-xs-12 col-sm-6 col-md-6 col-lg-5" id="synopsis"><!--for border if needed-->
-					<div id="synopsis-title">
-						SYNOPSIS
-					</div>
-					<p id="synopsis-text">
-						Angkara centers on the life of <strong>Ken Arok</strong>, 
-						a young thug determined to be more than just a feather in the air. 
-						Under the tutelage of an ascetic named <strong>Lohgawe</strong>, 
-						Arok pursues his dream to become the reformer of his society and 
-						his love of a lifetime,<strong> Ken Dedes</strong>, the beautiful
-						wife of his superior, local chieftain <strong>Tunggul Ametung</strong>.
-						His thirst for power involves those around him, including an esteemed 
-						keris bladesmith, <strong>Mpu Gandring</strong>, his best friend and 
-						fellow guard, <strong>Kebo Ijo</strong>, and Kebo Ijo's wife, 
-						<strong>Sasmi</strong>.
-					</p>
-			</div>
-            <div class="jumbotron slides"></div>
-            <div class="jumbotron slides"></div>
-            <div class="jumbotron slides"></div>
-            <div class="jumbotron slides"></div>
-        </div>
-
-        <nav id="footer" class="navbar navbar-default navbar-fixed-bottom">
-            <div class="container-fluid">
-                <a href="http://facebook.com" target="_blank">
-                    <img src="img/social-media/FB-f-Logo__blue_57.png" class="social-media-icon navbar-text pull-right">
-                </a>
-                <a href="http://twitter.com" target="_blank">
-                    <img src="img/social-media/Twitter_logo_blue.png" class="social-media-icon navbar-text pull-right">
-                </a>
-                <a href="http://youtube.com" target="_blank">
-                    <img src="img/social-media/YouTube-social-icon_red_48px.png" class="social-media-icon pull-right">
-                </a>
-            </div><!-- /.container-fluid -->
-        </nav>
 
         <script src="vendor/jquery/jquery-1.11.2.min.js"></script>
         <script src="vendor/jquery-mousewheel/jquery.mousewheel.min.js"></script>
@@ -115,6 +128,7 @@
         <script src="vendor/jquery-ui/jquery-ui.min.js"></script>
         <script src="vendor/jquery-mobile/jquery.mobile.custom.min.js"></script>
         <script src="vendor/mersenne-twister/mersenne-twister.js"></script>
+        <script src="vendor/wait-for-images/waitforimages.min.js"></script>
 
         <script type="text/javascript">
             // Hide all slides other than the first slide

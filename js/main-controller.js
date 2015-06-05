@@ -1,3 +1,44 @@
+var loadingProperties = {
+    loadingLayer: $(".loading-layer"),
+    loadingLogo: $(".loading-logo"),
+    backgroundLoader: $("#background-loader"),
+    init: false,
+    initLoadingAnimation: function () {
+        $("body").css("opacity", "1").css("background-image", 'url("img/background.svg")');
+        this.loadingLogo.animate({
+            opacity: 1
+        }, 4000, "linear", function () {
+            setTimeout(function () {
+                $(".main-container").css("opacity", "1");
+                loadingProperties.loadingLayer.animate({
+                    opacity: 0
+                }, 3000, function () {
+                    loadingProperties.loadingLayer.css("display", "none");
+                    loadingProperties.loadingLogo.css("display", "none");
+                });
+            }, 1000);
+        });
+    }
+};
+
+loadingProperties.loadingLayer.css("background-image", 'url("img/background.svg")').waitForImages(function () {
+    if (loadingProperties.init) {
+        loadingProperties.initLoadingAnimation();
+    } else {
+        loadingProperties.init = true;
+    }
+}, $.noop, true);
+
+loadingProperties.loadingLogo.waitForImages(function () {
+    if (loadingProperties.init) {
+        loadingProperties.initLoadingAnimation();
+    } else {
+        loadingProperties.init = true;
+    }
+}, $.noop, true);
+
+/* ----------------------------------------------------------------------------- */
+
 var slideProperties = {
     n: 6,
     curSlideId: 0,
@@ -69,7 +110,7 @@ slideProperties.enableScroll = function () {
 // Main controller
 $(document).ready(function () {
 	// Hiding loading layer on document ready
-    $(".loading-layer").fadeOut('500');
+    // $(".loading-layer").fadeOut('500');
     
     // // In case the slideListener stuck (don't know why)
     // setInterval(function () {

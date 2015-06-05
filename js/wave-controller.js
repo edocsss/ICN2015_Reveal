@@ -6,7 +6,7 @@ WaveController.AOE = 100;
 WaveController.DETAIL = Math.round(WIDTH / 60);
 WaveController.WATER_DENSITY = 1.07;
 WaveController.AIR_DENSITY = 1.02;
-WaveController.WAVE_HEIGHT_MULTIPLIER = 0.85;
+WaveController.WAVE_HEIGHT_MULTIPLIER = 0.88;
 
 function WaveController () {
 	this.mouseIsDown = false;

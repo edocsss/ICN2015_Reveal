@@ -12,6 +12,10 @@ var flash = new Flash();
 var lightningController = new LightningController(flash);
 lightningController.initialize();
 
+// Initialize Ship animation
+var shipController = new ShipController();
+shipController.initialize();
+
 // Background image
 var background = new Image();
 background.src = "img/background.svg";
@@ -66,6 +70,9 @@ function drawCanvas () {
 	context.restore();
 
 	// Draw ship here!!
+	context.save();
+	shipController.drawShip();
+	context.restore();
 
 	// Draw wave
 	context.save();

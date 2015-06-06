@@ -8,7 +8,6 @@ html, body {
 body {
     /*background-image: url("../img/background.svg");*/
     /*background-image: url("../img/a.svg");*/
-    background-repeat: no-repeat;
     opacity: 0;
 }
 

@@ -34,7 +34,6 @@ LightningController.prototype.initialize = function () {
 
 	var resetLastIndex = setInterval((function () {
 			this.lastIndex = [];
-			console.log("RESET LAST INDEX");
 		}).bind(this), 5000);
 };
 
@@ -60,7 +59,6 @@ LightningController.prototype.onLoadHandler = function (img) {
 LightningController.prototype.selectLightning = function (positionX) {
 	var index = Math.floor(r.random() * this.n);
 	// var index = Math.abs(Math.round(r.random() * 5 * Math.sin(2 * Math.PI * r.random()) * (LightningController.NO_OF_LIGHTNINGS - 1) / LightningController.NO_OF_LIGHTNINGS))
-	console.log(WIDTH);
 	if (this.lastIndex.indexOf(index) >= 0 || this.lightnings[index].opacity > 0) {
 		return;
 	}
@@ -125,4 +123,4 @@ LightningController.prototype.drawLightning = function () {
 
 LightningController.prototype.canvasResized = function () {
 	LightningController.BASE_LIGHTNING_POSITION = [0.25 * WIDTH, 0.666667 * WIDTH];
-}
+};

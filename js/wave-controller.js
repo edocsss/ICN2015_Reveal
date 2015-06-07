@@ -1,5 +1,5 @@
 /* Wave properties (STATIC VARIABLES) */
-WaveController.DENSITY = 0.75;
+WaveController.DENSITY = 0.6;
 WaveController.FRICTION = 1.14;
 WaveController.MOUSE_PULL = 0.07;
 WaveController.AOE = 100;
@@ -95,7 +95,8 @@ WaveController.prototype.drawWave = function () {
 		previous,
 		next;
 	
-	gradientFill.addColorStop(0,'#6180B5');
+	// gradientFill.addColorStop(0,'#6180B5');
+	gradientFill.addColorStop(0,'#3B556E');
 	// gradientFill.addColorStop(0.1,'#4B6694');
 	// gradientFill.addColorStop(0.2,'#4B6694');
 	// gradientFill.addColorStop(0.3,'#4B6694');
@@ -105,7 +106,8 @@ WaveController.prototype.drawWave = function () {
 	// gradientFill.addColorStop(0.7,'#3D557D');
 	// gradientFill.addColorStop(0.8,'#32476B');
 	// gradientFill.addColorStop(0.9,'#4B6694');
-	gradientFill.addColorStop(1,'#233656');
+	// gradientFill.addColorStop(1,'#233656');
+	gradientFill.addColorStop(1,'#021B35');
 
 	context.fillStyle = gradientFill;
 	context.beginPath();

@@ -6,8 +6,7 @@ var slideProperties = {
         selector: $('#footer'),
         visibility: true
     },
-    activeBulletMapping: [-1, 0, 1, 3, 4],
-    shipPositionMapping: [10, 100, 200, 300, 400, 500, 600]
+    activeBulletMapping: [-1, 0, 1, 3, 4]
 };
 
 slideProperties.checkActiveLink = function (targetSlide) {
@@ -34,7 +33,9 @@ slideProperties.footer.show = function () {
 };
 
 slideProperties.changeSlide = function (targetSlide, targetShipX) {
-    if (targetSlide >= this.n || targetSlide < 0) {
+    console.log("TARGET  " + targetShipX);
+    console.log("WIDTH  " + WIDTH);
+    if (targetSlide >= this.n || targetSlide < 0 || this.curSlideId === targetSlide) {
         this.enableScroll();
         return;
     }
@@ -53,8 +54,8 @@ slideProperties.changeSlide = function (targetSlide, targetShipX) {
             this.enableScroll();
         }).bind(this));
 
-        console.log(shipController.targetX);
         // Update ship position
+        shipController.moveForward = true;
         shipController.targetX = targetShipX;
     } else if (targetSlide < this.curSlideId) {
         // Change slide
@@ -63,12 +64,13 @@ slideProperties.changeSlide = function (targetSlide, targetShipX) {
             this.enableScroll();
         }).bind(this));
 
-        console.log(shipController.targetX);
         // Update ship position
+        shipController.moveForward = false;
         shipController.targetX = targetShipX;
     }
     
     slideProperties.curSlideId = targetSlide;
+    lastPosition = targetSlide;
 };
 
 slideProperties.enableScroll = function () {
@@ -136,11 +138,11 @@ $(document).ready(function () {
             
             if (e.originalEvent.detail > 0 || e.originalEvent.wheelDelta < 0) {
                 nextSlide = slideProperties.curSlideId + 1;
-                slideProperties.changeSlide(nextSlide, slideProperties.shipPositionMapping[nextSlide]);
+                slideProperties.changeSlide(nextSlide, shipPositionMapping[nextSlide]);
             }
             else {
                 nextSlide = slideProperties.curSlideId - 1;
-                slideProperties.changeSlide(nextSlide, slideProperties.shipPositionMapping[nextSlide]);
+                slideProperties.changeSlide(nextSlide, shipPositionMapping[nextSlide]);
             }
         }
     });
@@ -149,7 +151,7 @@ $(document).ready(function () {
         if (slideProperties.slideListener) {
             var nextSlide = slideProperties.curSlideId + 1;
             slideProperties.slideListener = false;
-            slideProperties.changeSlide(nextSlide, slideProperties.shipPositionMapping[nextSlide]);
+            slideProperties.changeSlide(nextSlide, shipPositionMapping[nextSlide]);
         }
     });
 
@@ -157,7 +159,7 @@ $(document).ready(function () {
         if (slideProperties.slideListener) {
             var nextSlide = slideProperties.curSlideId - 1;
             slideProperties.slideListener = false;
-            slideProperties.changeSlide(nextSlide, slideProperties.shipPositionMapping[nextSlide]);
+            slideProperties.changeSlide(nextSlide, shipPositionMapping[nextSlide]);
         }
     });
 
@@ -170,13 +172,13 @@ $(document).ready(function () {
         if (e.keyCode == '37' && slideProperties.slideListener) {
             slideProperties.slideListener = false;
             nextSlide = slideProperties.curSlideId - 1;
-            slideProperties.changeSlide(nextSlide, slideProperties.shipPositionMapping[nextSlide]);
+            slideProperties.changeSlide(nextSlide, shipPositionMapping[nextSlide]);
         } 
         // Right arrow
         else if (e.keyCode == '39' && slideProperties.slideListener) {
             slideProperties.slideListener = false;
             nextSlide = slideProperties.curSlideId + 1;
-            slideProperties.changeSlide(nextSlide, slideProperties.shipPositionMapping[nextSlide]);
+            slideProperties.changeSlide(nextSlide, shipPositionMapping[nextSlide]);
         }
     });
 
@@ -184,9 +186,10 @@ $(document).ready(function () {
     $(".nav a, .navbar-brand").click(function (event) {
         var nextSlide = parseInt(this.getAttribute("data-slide"));
 
+        console.log(nextSlide, "CLICK");
         if (slideProperties.slideListener) {
             slideProperties.slideListener = false;
-            slideProperties.changeSlide(nextSlide, slideProperties.shipPositionMapping[nextSlide]);
+            slideProperties.changeSlide(nextSlide, shipPositionMapping[nextSlide]);
         }
     });
 });

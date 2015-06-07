@@ -20,7 +20,9 @@ shipController.initialize();
 var background = new Image();
 background.src = "img/background.svg";
 
-console.log(background, background.src);
+// Ship position
+var shipPositionMapping = [0.1 * WIDTH, 0.3 * WIDTH, 0.5 * WIDTH, 0.6 * WIDTH, 0.7 * WIDTH, 0.9 * WIDTH];
+var lastPosition = 0;
 
 // Resize canvas event registration
 $(window).resize(resizeCanvas);
@@ -34,7 +36,7 @@ resizeCanvas();
 /************************************************/
 
 // Set interval for redrawing canvas
-var timeUpdateInterval = setInterval(drawCanvas, 40);
+var timeUpdateInterval = setInterval(drawCanvas, 1000 / 40);
 
 function resizeCanvas (e) {
 	WIDTH = window.innerWidth;
@@ -43,21 +45,23 @@ function resizeCanvas (e) {
 	canvas.width = WIDTH;
 	canvas.height = HEIGHT;
 
+	// Update ship position
+	shipPositionMapping = [0.1 * WIDTH, 0.3 * WIDTH, 0.5 * WIDTH, 0.6 * WIDTH, 0.7 * WIDTH, 0.9 * WIDTH];
+	shipController.targetX = shipPositionMapping[lastPosition];
+
 	// Need this because Wave has some private constants
 	waveController.canvasResized();
 
 	// Update BASE_LIGHTNING_POSITION for LightningController
 	lightningController.canvasResized();
+
+	// Update ship's Y position
+	shipController.canvasResized();
 }
 
 function drawCanvas () {
 	// Clear canvas
 	context.clearRect(0, 0, WIDTH, HEIGHT);
-
-	// Draw background
-	// context.save();
-	// context.drawImage(background, 0, 0, WIDTH, HEIGHT);
-	// context.restore();
 
 	// Draw lightning
 	context.save();

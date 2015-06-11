@@ -7,6 +7,7 @@ WaveController.DETAIL = Math.round(WIDTH / 60);
 WaveController.WATER_DENSITY = 1.07;
 WaveController.AIR_DENSITY = 1.02;
 WaveController.WAVE_HEIGHT_MULTIPLIER = 0.88;
+WaveController.WAVE_HEIGHT_RISE = 0.1;
 
 function WaveController () {
 	this.mouseIsDown = false;
@@ -21,6 +22,7 @@ function WaveController () {
 		};
 
 	this.particles = [];
+	this.draw = true;
 }
 
 /* Method Definitions */
@@ -34,7 +36,7 @@ WaveController.prototype.initialize = function () {
 			y: HEIGHT * 0.5,
 			original: {
 				x: 0,
-				y: HEIGHT * WaveController.WAVE_HEIGHT_MULTIPLIER
+				y: 0 // HEIGHT * WaveController.WAVE_HEIGHT_MULTIPLIER
 			},
 			velocity: {
 				x: 0,
@@ -89,71 +91,73 @@ WaveController.prototype.insertImpulse = function (positionX, forceY) {
 };
 
 WaveController.prototype.drawWave = function () {
-	var gradientFill = context.createLinearGradient(WIDTH * 0.5, HEIGHT * WaveController.WAVE_HEIGHT_MULTIPLIER, WIDTH * 0.5, HEIGHT),
-		len = this.particles.length,
-		current,
-		previous,
-		next;
+	if (this.draw) {
+		var gradientFill = context.createLinearGradient(WIDTH * 0.5, HEIGHT * WaveController.WAVE_HEIGHT_MULTIPLIER, WIDTH * 0.5, HEIGHT),
+			len = this.particles.length,
+			current,
+			previous,
+			next;
+		
+		// gradientFill.addColorStop(0,'#6180B5');
+		gradientFill.addColorStop(0,'#3B556E');
+		// gradientFill.addColorStop(0.1,'#4B6694');
+		// gradientFill.addColorStop(0.2,'#4B6694');
+		// gradientFill.addColorStop(0.3,'#4B6694');
+		// gradientFill.addColorStop(0.4,'#4B6694');
+		// gradientFill.addColorStop(0.5,'#4B6694');
+		// gradientFill.addColorStop(0.6,'#4B6694');
+		// gradientFill.addColorStop(0.7,'#3D557D');
+		// gradientFill.addColorStop(0.8,'#32476B');
+		// gradientFill.addColorStop(0.9,'#4B6694');
+		// gradientFill.addColorStop(1,'#233656');
+		gradientFill.addColorStop(1,'#021B35');
 	
-	// gradientFill.addColorStop(0,'#6180B5');
-	gradientFill.addColorStop(0,'#3B556E');
-	// gradientFill.addColorStop(0.1,'#4B6694');
-	// gradientFill.addColorStop(0.2,'#4B6694');
-	// gradientFill.addColorStop(0.3,'#4B6694');
-	// gradientFill.addColorStop(0.4,'#4B6694');
-	// gradientFill.addColorStop(0.5,'#4B6694');
-	// gradientFill.addColorStop(0.6,'#4B6694');
-	// gradientFill.addColorStop(0.7,'#3D557D');
-	// gradientFill.addColorStop(0.8,'#32476B');
-	// gradientFill.addColorStop(0.9,'#4B6694');
-	// gradientFill.addColorStop(1,'#233656');
-	gradientFill.addColorStop(1,'#021B35');
-
-	context.fillStyle = gradientFill;
-	context.beginPath();
-	context.moveTo(this.particles[0].x, this.particles[0].y);
-
-	for (var i = 0; i < len; i++) {
-		current = this.particles[i];
-		previous = this.particles[i - 1];
-		next = this.particles[i + 1];
-
-		if (previous && next) {
-			var forceY = 0,
-				prevY = current.y;
-
-			forceY += -WaveController.DENSITY * (previous.y - current.y);
-			forceY += WaveController.DENSITY * (current.y - next.y);
-			forceY += WaveController.DENSITY / 15 * (current.y - current.original.y);
-
-			current.velocity.y += -(forceY / current.mass) + current.force.y;
-			current.velocity.y /= WaveController.FRICTION;
-			current.force.y /= WaveController.FRICTION;
-			current.y += current.velocity.y;
-
-			var distance = this.distanceBetween(this.mp, current);
-			if (distance < WaveController.AOE) {
-				distance = this.distanceBetween(this.mp, {
-					x: current.original.x,
-					y: current.original.y
-				});
-
-				this.ms.x = this.ms.x * 0.98;
-				this.ms.y = this.ms.y * 0.98;
-
-				current.force.y += (WaveController.MOUSE_PULL * (1 - (distance / WaveController.AOE))) * this.ms.y;
+		context.fillStyle = gradientFill;
+		context.beginPath();
+		context.moveTo(this.particles[0].x, this.particles[0].y);
+	
+		for (var i = 0; i < len; i++) {
+			current = this.particles[i];
+			previous = this.particles[i - 1];
+			next = this.particles[i + 1];
+	
+			if (previous && next) {
+				var forceY = 0,
+					prevY = current.y;
+	
+				forceY += -WaveController.DENSITY * (previous.y - current.y);
+				forceY += WaveController.DENSITY * (current.y - next.y);
+				forceY += WaveController.DENSITY / 15 * (current.y - current.original.y);
+	
+				current.velocity.y += -(forceY / current.mass) + current.force.y;
+				current.velocity.y /= WaveController.FRICTION;
+				current.force.y /= WaveController.FRICTION;
+				current.y += current.velocity.y;
+	
+				var distance = this.distanceBetween(this.mp, current);
+				if (distance < WaveController.AOE) {
+					distance = this.distanceBetween(this.mp, {
+						x: current.original.x,
+						y: current.original.y
+					});
+	
+					this.ms.x = this.ms.x * 0.98;
+					this.ms.y = this.ms.y * 0.98;
+	
+					current.force.y += (WaveController.MOUSE_PULL * (1 - (distance / WaveController.AOE))) * this.ms.y;
+				}
+	
+				//console.log(previous.y, current.y);
+				context.quadraticCurveTo(previous.x, previous.y, previous.x + (current.x - previous.x) / 2, previous.y + (current.y - previous.y) / 2);
 			}
-
-			//console.log(previous.y, current.y);
-			context.quadraticCurveTo(previous.x, previous.y, previous.x + (current.x - previous.x) / 2, previous.y + (current.y - previous.y) / 2);
 		}
+	
+		context.lineTo(this.particles[this.particles.length - 1].x, this.particles[this.particles.length - 1].y);
+		context.lineTo(WIDTH, HEIGHT);
+		context.lineTo(0, HEIGHT);
+		context.lineTo(this.particles[0].x, this.particles[0].y);
+		context.fill();
 	}
-
-	context.lineTo(this.particles[this.particles.length - 1].x, this.particles[this.particles.length - 1].y);
-	context.lineTo(WIDTH, HEIGHT);
-	context.lineTo(0, HEIGHT);
-	context.lineTo(this.particles[0].x, this.particles[0].y);
-	context.fill();
 };
 
 WaveController.prototype.mouseMove = function (e) {

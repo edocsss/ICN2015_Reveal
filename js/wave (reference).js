@@ -27,7 +27,7 @@
 		var canvas, context, particles;
 		var timeUpdateInterval, twitchInterval1, twitchInterval2;
 		var ship = new Image();
-		ship.src = 'img/asd.png';
+		// ship.src = 'img/asd.png';
 		
 		/**
 		 * Constructor.
@@ -148,7 +148,7 @@
 			//context.clearRect(0, 0, WIDTH, HEIGHT);
 
 			// ADJUST THE OFFSET (70)
-			context.drawImage(ship, 30, HEIGHT - ship.height - HEIGHT * (1 - WAVE_HEIGHT_MULTIPLIER) + 70);
+			// context.drawImage(ship, 30, HEIGHT - ship.height - HEIGHT * (1 - WAVE_HEIGHT_MULTIPLIER) + 70);
 
 			context.fillStyle = gradientFill;
 			context.beginPath();

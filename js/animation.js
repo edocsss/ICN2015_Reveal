@@ -1,37 +1,28 @@
 // Mersenne Twister
 var r = new MersenneTwister();
 
-// Initialize Wave animation
+// // Initialize Wave animation
 var waveController = new WaveController();
 waveController.initialize();
 
-// Initialize Flash animation
+// // Initialize Flash animation
 var flash = new Flash();
 
-// Initialize Lightning animation
+// // Initialize Lightning animation
 var lightningController = new LightningController(flash);
 lightningController.initialize();
 
-// Initialize Ship animation
+// // Initialize Ship animation
 var shipController = new ShipController();
 shipController.initialize();
 
-// Background image
-var background = new Image();
-background.src = "img/background.svg";
-
 // Ship position
-var shipPositionMapping = [0.1 * WIDTH, 0.3 * WIDTH, 0.5 * WIDTH, 0.6 * WIDTH, 0.7 * WIDTH, 0.9 * WIDTH];
-var lastPosition = 0;
+// var shipPositionMapping = [0.01 * WIDTH, 0.1 * WIDTH, 0.2 * WIDTH, 0.3 * WIDTH, 0.4 * WIDTH, 0.5 * WIDTH];
+// var lastPosition = 0;
 
 // Resize canvas event registration
 $(window).resize(resizeCanvas);
 resizeCanvas();
-
-// Register mouse events for Wave animation
-// $(canvas).mousemove(wave.mouseMove.bind(wave));
-// $(canvas).mousedown(wave.mouseDown.bind(wave));
-// $(canvas).mouseup(wave.mouseUp.bind(wave));
 
 /************************************************/
 
@@ -46,8 +37,8 @@ function resizeCanvas (e) {
 	canvas.height = HEIGHT;
 
 	// Update ship position
-	shipPositionMapping = [0.1 * WIDTH, 0.3 * WIDTH, 0.5 * WIDTH, 0.6 * WIDTH, 0.7 * WIDTH, 0.9 * WIDTH];
-	shipController.targetX = shipPositionMapping[lastPosition];
+	// shipPositionMapping = [0.01 * WIDTH, 0.1 * WIDTH, 0.2 * WIDTH, 0.3 * WIDTH, 0.4 * WIDTH, 0.5 * WIDTH];
+	// shipController.targetX = shipPositionMapping[lastPosition];
 
 	// Need this because Wave has some private constants
 	waveController.canvasResized();

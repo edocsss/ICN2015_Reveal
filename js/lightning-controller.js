@@ -9,6 +9,7 @@ function LightningController (flash) {
 	this.flash = flash;
 	this.n = 0;
 	this.play = false;
+	this.draw = true;
 }
 
 LightningController.prototype.initialize = function () {
@@ -84,7 +85,7 @@ LightningController.prototype.selectLightning = function (positionX) {
 LightningController.prototype.drawLightning = function () {
 	var lightning;
 
-	if (this.play) {
+	if (this.play && this.draw) {
 		for (var i = 0; i < LightningController.NO_OF_LIGHTNINGS; i++) {
 			// positionX : Harus di save di lightnings nya -> kalo opacity > 0 = jangan diubah (krn harus ditempat sebelumnya lagi)
 			lightning = this.lightnings[i];

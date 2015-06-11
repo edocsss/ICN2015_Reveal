@@ -3,6 +3,7 @@ html, body {
     width: 100%;
     font-family: 'Lora', serif;
     color: #FFFFFF;
+    overflow-x: hidden;
 }
 
 body {
@@ -11,8 +12,8 @@ body {
     opacity: 0;
 }
 
-canvas {
-    background-color: transparent;
+.no-float {
+    float: none;
 }
 
 .loading-logo {
@@ -54,11 +55,6 @@ a:hover {
     margin-right: 12px;
 }
 
-.logo {
-    width: auto;
-    height: 40px;
-}
-
 .navbar-default .navbar-nav > li {
     margin-right: 12px;
 }
@@ -90,6 +86,34 @@ a:hover {
     border-bottom: solid #EED000 2px;
 }
 
+.logo {
+    width: auto;
+    height: 40px;
+}
+
+.icn-logo {
+    position: fixed;
+    right: 0;
+}
+
+.canvas-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    /*opacity: 0; */
+}
+
+.canvas-hidden {
+    opacity: 0;
+}
+
+#canvas {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+}
+
 #content-container {
     /* width: 3000px; */
     height: 100%;
@@ -110,30 +134,65 @@ a:hover {
     padding: 75px 0 0 0 !important;/*for visibility of content*/
 }
 
-.canvas-container {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    bottom: 0;
-}
-
-#canvas {
-    width: 100%;
-    height: 100%;
+.synopsis-container {
+    background-image: url("../img/look-left-crop.jpg");
+    background-size: 100% 100%;
 }
 
 #synopsis {
     margin-top: 7vh;
+    padding-right: 75px;
 }
 
 #synopsis-title {
-    color: #EED000;
+    color: #222222;
     font-size: 4rem;
+    font-weight: 900;
 }
 
 #synopsis-text {
-    font-size: 1.3rem;
+    color: #333333;
+    font-size: 1.5rem;
     margin-left: 10px;
+    font-weight: 500;
+}
+
+.history-container {
+    background-image: url("../img/history-2-crop.jpg");
+    background-size: 100% 100%;
+}
+
+.history-container > .header {
+    opacity: 0.9;
+}
+
+.history-container > .text {
+    opacity: 0.8;
+}
+
+.history-container > .row > div > h2.text-center {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 3rem;
+}
+
+.history > p {
+    text-align: justify;
+    font-size: 1.8rem;
+}
+
+#clicking-area {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: transparent;
+}
+
+#form-area {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background-color: transparent;
 }
 
 #footer {
@@ -146,7 +205,11 @@ a:hover {
     width: auto;
 }
 
-/*@media all and (min-width: 768px) {
+@media all and (min-width: 851px) {
+    .navbar-header {
+        position: fixed;
+    }
+
     .navbar .navbar-nav {
       display: inline-block;
       float: none;
@@ -156,4 +219,10 @@ a:hover {
     .navbar .navbar-collapse {
       text-align: center;
     }
-}*/
+}
+
+@media all and (max-width: 850px) {
+    .icn-logo {
+        display: none;
+    }
+}

@@ -131,7 +131,7 @@ a:hover {
     width: 100%;
     height: 100%;
     border-radius: 0 !important;
-    padding: 75px 0 0 0 !important;/*for visibility of content*/
+    padding: 75px 0 0 0;/*for visibility of content*/
 }
 
 .synopsis-container {
@@ -155,6 +155,12 @@ a:hover {
     font-size: 1.5rem;
     margin-left: 10px;
     font-weight: 500;
+}
+
+.casts-container {
+    padding-top: 0;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
 }
 
 .history-container {
@@ -260,5 +266,17 @@ a:hover {
 @media all and (max-width: 850px) {
     .icn-logo {
         display: none;
+    }
+}
+
+@media all and (min-width: 950px) {
+    .sponsor-slider {
+        width: 75%;
+    }
+}
+
+@media all and (max-width: 950px) {
+    .sponsor-slider {
+        width: 70%;
     }
 }

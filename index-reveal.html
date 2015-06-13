@@ -1,0 +1,145 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>ICN 2015 - NILAM</title>
+
+        <!-- REDIRECT FOR MOBILE PHONE -->
+        <script type="text/javascript">
+            window.onresize = function () {
+                if (screen.width < 800 || screen.height < 450) {
+                   window.location = "mobile.html";
+                    alert("Please open this website on laptop or desktop!");
+                }
+            };
+
+            if (screen.width < 800 || screen.height < 450) {
+                window.location = "mobile.html";
+                alert("Please open this website on laptop or desktop!");
+            }
+        </script>
+
+        <link href='http://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+        <link href="vendor/bootstrap-3.3.4-dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="vendor/slick-1.5.0/slick/slick.css" rel="stylesheet">
+        <link href="vendor/slick-1.5.0/slick/slick-theme.css" rel="stylesheet">
+        <link href="vendor/reveal.js-3.1.0/css/reveal.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="loading-layer">
+            <img src="img/logo/loading-logo.png" class="loading-logo center-block text-center">
+        </div>
+        
+        <div class="main-container">
+            <nav class="navbar navbar-default navbar-fixed-top">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#" data-slide="0">
+                            <img src="img/logo/logonilamalt_invert_websize.png" class="logo">
+                        </a>
+                        <a class="navbar-brand icn-logo" href="#">
+                            <img src="img/logo/ICN logo small.png" class="logo">
+                        </a>
+                    </div>
+
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <li class=""><a href="#" data-slide="1">SYNOPSIS</a></li>
+                            <li class=""><a href="#" data-slide="2">CASTS</a></li>
+                            <li class=""><a href="#" data-slide="3">HISTORY</a></li>
+                            <li class=""><a href="#" data-slide="4">SPONSORS</a></li>
+                            <li class=""><a href="#" data-slide="5">BUY TICKET!</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+
+            <!-- DO NOT REMOVE THE CANVAS, THE SLIDING ANIMATION IS SMOOTH ONLY IF THERE IS CANVAS (SOMEHOW) -->
+            <div class="canvas-container canvas-hidden">
+                <canvas id="canvas"></canvas>
+            </div>
+
+            <div class="reveal">
+                <div class="slides">
+                    <section>
+                        <div class="col-xs-12 text-center" style="margin-top: 100px">
+                            <p>
+                                NILAM a musical<br>
+                                12 SEPTEMBER<br>
+                                NLB
+                            </p>
+                        </div>
+                    </section>
+
+                    <section>
+                        
+                    </section>
+
+                    <section>
+                        
+                    </section>
+
+                    <section>
+                        <section>
+                            
+                        </section>
+                        <section>
+                            
+                        </section>
+                        <section>
+                            
+                        </section>
+                        <section>
+                            
+                        </section>
+                        <section>
+                            
+                        </section>
+                        <section>
+                            
+                        </section>
+                    </section>
+
+                    <section>
+                        
+                    </section>
+
+                    <section>
+                        
+                    </section>
+                </div>
+            </div>
+        </div>
+
+        <script src="vendor/jquery/jquery-1.11.2.min.js"></script>
+        <script src="vendor/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
+        <script src="vendor/jquery-ui/jquery-ui.min.js"></script>
+        <script src="vendor/jquery-mobile/jquery.mobile.custom.min.js"></script>
+        <script src="vendor/mersenne-twister/mersenne-twister.js"></script>
+        <script src="vendor/wait-for-images/waitforimages.min.js"></script>
+        <script src="vendor/reveal.js-3.1.0/js/reveal.js"></script>
+        <script src="vendor/slick-1.5.0/slick/slick.min.js"></script>
+
+        <script type="text/javascript">
+            // Hide all slides other than the first slide
+            $("div.slides:not(:first)").hide();
+        </script>
+
+        <!-- DO NOT REMOVE THE ANIMATION RELATED JS FILES!! SOMEHOW IT IS NEEDED FOR THE SLIDING ANIMATION TO BE SMOOTH -->
+        <script src="js/canvas-properties.js"></script>
+        <script src="js/wave-controller.js"></script>
+        <script src="js/flash.js"></script>
+        <script src="js/lightning-controller.js"></script>
+        <script src="js/ship-controller.js"></script>
+        <script src="js/animation.js"></script>
+        <script src="js/engine.js"></script>
+    </body>
+</html>

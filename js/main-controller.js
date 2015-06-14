@@ -236,7 +236,6 @@ $(document).ready(function () {
     $(".nav a, .navbar-brand").click(function (event) {
         var nextSlide = parseInt(this.getAttribute("data-slide"));
 
-        console.log(nextSlide, "CLICK");
         if (slideProperties.slideListener) {
             slideProperties.slideListener = false;
             slideProperties.changeSlide(nextSlide, 0);

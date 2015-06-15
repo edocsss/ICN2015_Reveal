@@ -62,7 +62,7 @@ slideProperties.changeSlide = function (targetSlide) {
         this.footer.show();
     }
     
-    this.checkActiveLink(targetSlide);
+    // this.checkActiveLink(targetSlide);
     Reveal.slide(targetSlide, 0, 0);
     
     this.curSlideId = targetSlide;
@@ -140,6 +140,45 @@ $(document).ready(function () {
         autoplay: true,
         autoplaySpeed: 5000,
         arrows: false,
+        swipeToSlide: true,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 5
+                }
+            },
+            {
+                breakpoint: 950,
+                settings: {
+                    slidesToShow: 4
+                }
+            },
+            {
+                breakpoint: 850,
+                settings: {
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 800,
+                settings: {
+                    slidesToShow: 2
+                }
+            }
+        ]
+    });
+
+    $(".sponsor-page-slider").slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        variableWidth: true,
+        speed: 300,
+        infinite: true,
+        dots: false,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        arrows: false,
         swipeToSlide: true
     });
 
@@ -183,5 +222,11 @@ $(document).ready(function () {
             nextSlide = slideProperties.curSlideId - 1;
             slideProperties.changeSlide(nextSlide, 0);
         }
+    });
+
+    // Check active link
+    Reveal.addEventListener("slidechanged", function (event) {
+        var activeLinkIndex = parseInt(event.currentSlide.getAttribute("data-active-link"));
+        slideProperties.checkActiveLink(activeLinkIndex);
     });
 });

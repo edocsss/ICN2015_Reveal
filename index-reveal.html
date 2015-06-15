@@ -6,13 +6,13 @@
         <!-- REDIRECT FOR MOBILE PHONE -->
         <script type="text/javascript">
             window.onresize = function () {
-                if (screen.width < 800 || screen.height < 450) {
+                if (screen.width < 800 || screen.height < 600) {
                    window.location = "mobile.html";
                     alert("Please open this website on laptop or desktop!");
                 }
             };
 
-            if (screen.width < 800 || screen.height < 450) {
+            if (screen.width < 800 || screen.height < 600) {
                 window.location = "mobile.html";
                 alert("Please open this website on laptop or desktop!");
             }
@@ -44,7 +44,7 @@
                         <a class="navbar-brand" href="#" data-slide="0">
                             <img src="img/logo/logonilamalt_invert_websize.png" class="logo">
                         </a>
-                        <a class="navbar-brand icn-logo" href="#">
+                        <a class="navbar-brand icn-logo" href="#" data-slide="0">
                             <img src="img/logo/ICN logo small.png" class="logo">
                         </a>
                     </div>
@@ -69,7 +69,7 @@
 
             <div class="reveal">
                 <div class="slides">
-                    <section>
+                    <section data-active-link="0">
                         <div class="col-xs-12 text-center" style="margin-top: 100px">
                             <p>
                                 NILAM a musical<br>
@@ -79,15 +79,15 @@
                         </div>
                     </section>
 
-                    <section class="synopsis-container container-fluid">
+                    <section class="synopsis-container container-fluid" data-active-link="1">
                         <div class="section-background-container">
-                            <img src="img/look-left-crop.jpg" class="section-background-image">
+                            <img src="img/look-left-crop-layer-32.jpg" class="section-background-image">
                         </div>
 
                         <div class="col-xs-offset-7 col-xs-5 text-justify" id="synopsis">
-                            <div id="synopsis-title">
+                            <h2 id="synopsis-title">
                                 Synopsis
-                            </div>
+                            </h2>
                             <p id="synopsis-text">
                                 Angkara centers on the life of <strong>Ken Arok</strong>, 
                                 a young thug determined to be more than just a feather in the air. 
@@ -103,42 +103,42 @@
                          </div>
                     </section>
 
-                    <section class="casts-container">
+                    <section class="casts-container" data-active-link="2">
                         <div class="col-xs-4 cast-outer-container">
                             <div class="col-xs-12 cast-inner-container">
-                                <img src="img/Mustika.jpg" class="cast-image">
+                                <img src="img/characters/Bara-1 - Copy.jpg" class="cast-image">
                             </div>
 
                             <div class="col-xs-12 cast-inner-container">
-                                <img src="img/Bara.jpg" class="cast-image">
+                                <img src="img/characters/Mirah-1 - Copy.jpg" class="cast-image">
                             </div>
 
                             <div class="col-xs-12 cast-inner-container">
-                                 <img src="img/Rijang.jpg" class="cast-image">
+                                 <img src="img/characters/Delima-1 - Copy.jpg" class="cast-image">
                             </div>
                         </div>
 
                         <div class="col-xs-4 cast-outer-container">
-
+                            <img src="img/characters/Malin-2.jpg" class="cast-image">
                         </div>
 
                         <div class="col-xs-4 cast-outer-container">
                             <div class="col-xs-12 cast-inner-container">
-                                <img src="img/Mustika.jpg" class="cast-image">
+                                <img src="img/characters/Rijang-1 - Copy.jpg" class="cast-image">
                             </div>
 
                             <div class="col-xs-12 cast-inner-container">
-                                <img src="img/Bara.jpg" class="cast-image">
+                                <img src="img/characters/Mustika-1 - Copy.jpg" class="cast-image">
                             </div>
 
                             <div class="col-xs-12 cast-inner-container">
-                                 <img src="img/Rijang.jpg" class="cast-image">
+                                 <img src="img/characters/Galih-1 - Copy.jpg" class="cast-image">
                             </div>
                         </div>
                     </section>
 
                     <section class="history-slides-container">
-                        <section>
+                        <section data-active-link="3">
                             <div class="section-background-container">
                                 <img src="img/history-2-crop.jpg" class="section-background-image">
                             </div>
@@ -151,7 +151,7 @@
                                 </div>
                                 
                                 <div class="row text">
-                                    <div class="col-md-7 col-lg-7 history center-block no-float text-justify">
+                                    <div class="col-xs-11 col-md-7 col-lg-7 history center-block no-float text-justify">
                                         <p>
                                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam blandit sollicitudin lacus hendrerit suscipit. Nulla commodo nulla eget felis mollis tincidunt. Aenean nisi sapien, pulvinar nec venenatis quis, lobortis eget eros. Phasellus vehicula, lacus a auctor sodales, enim est condimentum lectus, non mollis arcu ipsum quis lectus. Morbi tempor sodales nulla, quis posuere nisi porttitor ut. Vestibulum tempus bibendum erat, eget aliquet diam luctus in. Mauris semper dapibus metus non pretium. Nunc tristique accumsan felis nec rutrum. Maecenas cursus pharetra eleifend. Vivamus sit amet sagittis odio.
                                         </p>
@@ -181,67 +181,143 @@
                         </section>
                     </section>
 
-                    <section class="sponsors-container">
+                    <section class="sponsors-container" data-active-link="4">
                         <div class="container-fluid text-justify">
-                            <div class="row sponsor-header">
+                            <div class="row sponsor-row">
                                 <div class="col-xs-12">
-                                    <h2 class="text-center">Our Sponsors</h2>
+                                    <h1 class="text-center sponsor-header">Our Sponsors</h1>
                                 </div>
                             </div>
                             
                             <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-xs-2">
-                                        <h4>Platinum Sponsors:</h4>
+                                <div class="row sponsor-row">
+                                    <div class="col-xs-12">
+                                        <h3 class="text-center">Platinum</h3>
                                     </div>
-                                    <div class="col-xs-10">
-                                        <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
-                                        <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
-                                        <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
-                                        <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-xs-2">
-                                        <h4>Gold Sponsors:</h4>
-                                    </div>
-                                    <div class="col-xs-10">
-                                        <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
-                                        <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
-                                        <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
-                                        <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-xs-2">
-                                        <h4>Silver Sponsors:</h4>
-                                    </div>
-                                    <div class="col-xs-10">
-                                        <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
-                                        <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
-                                        <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
-                                        <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
+                                    <div class="col-xs-12 sponsor-logo-container text-center">
+                                        <div class="sponsor-page-slider">
+                                            <div>
+                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
+                                            </div>
+                                            <div>
+                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
+                                            </div>
+                                            <div>
+                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
+                                            </div>
+                                            <div>
+                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
+                                            </div>
+                                            <div>
+                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
+                                            </div>
+                                            <div>
+                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
+                                            </div>
+                                            <div>
+                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="row">
-                                    <div class="col-xs-2">
-                                        <h4>Bronze Sponsors:</h4>
+                                <div class="row sponsor-row">
+                                    <div class="col-xs-12">
+                                        <h3 class="text-center">Gold</h3>
                                     </div>
-                                    <div class="col-xs-10">
-                                        <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
-                                        <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
-                                        <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
-                                        <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
+                                    <div class="col-xs-12 sponsor-logo-container text-center">
+                                        <div class="sponsor-page-slider">
+                                            <div>
+                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
+                                            </div>
+                                            <div>
+                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
+                                            </div>
+                                            <div>
+                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
+                                            </div>
+                                            <div>
+                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
+                                            </div>
+                                            <div>
+                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
+                                            </div>
+                                            <div>
+                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
+                                            </div>
+                                            <div>
+                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row sponsor-row">
+                                    <div class="col-xs-12">
+                                        <h3 class="text-center">Silver</h4>
+                                    </div>
+                                    <div class="col-xs-12 sponsor-logo-container text-center">
+                                        <div class="sponsor-page-slider">
+                                            <div>
+                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
+                                            </div>
+                                            <div>
+                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
+                                            </div>
+                                            <div>
+                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
+                                            </div>
+                                            <div>
+                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
+                                            </div>
+                                            <div>
+                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
+                                            </div>
+                                            <div>
+                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
+                                            </div>
+                                            <div>
+                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row sponsor-row">
+                                    <div class="col-xs-12">
+                                        <h3 class="text-center">Bronze</h4>
+                                    </div>
+                                    <div class="col-xs-12 sponsor-logo-container text-center">
+                                        <div class="sponsor-page-slider">
+                                            <div>
+                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
+                                            </div>
+                                            <div>
+                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
+                                            </div>
+                                            <div>
+                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
+                                            </div>
+                                            <div>
+                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
+                                            </div>
+                                            <div>
+                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
+                                            </div>
+                                            <div>
+                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
+                                            </div>
+                                            <div>
+                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </section>
 
-                    <section>
+                    <section data-active-link="5">
                         <div class="ticket-container">
                             <div id="clicking-area">
                             </div>
@@ -272,46 +348,49 @@
             </div>
 
             <nav id="footer" class="navbar navbar-default navbar-fixed-bottom">
-                <div class="sponsor-slider">
-                    <div>
-                        <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo-slider">
-                    </div>
-                    <div>
-                        <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo-slider">
-                    </div>
-                    <div>
-                        <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo-slider">
-                    </div>
-                    <div>
-                        <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo-slider">
-                    </div>
-                    <div>
-                        <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo-slider">
-                    </div>
-                    <div>
-                        <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo-slider">
-                    </div>
-                    <div>
-                        <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo-slider">
-                    </div>
-                    <div>
-                        <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo-slider">
-                    </div>
-                    <div>
-                        <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo-slider">
-                    </div>
-                    <div>
-                        <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo-slider">
-                    </div>
-                    <div>
-                        <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo-slider">
-                    </div>
-                    <div>
-                        <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo-slider">
+                <div class="col-xs-10">
+                    <div class="sponsor-slider">
+                        <div>
+                            <img src="img/sponsors/AstraOtoparts -H.jpg" class="sponsor-logo-slider">
+                        </div>
+                        <div>
+                            <img src="img/sponsors/Radar Singapura.jpg" class="sponsor-logo-slider">
+                        </div>
+                        <div>
+                            <img src="img/sponsors/bisa logo png.PNG" class="sponsor-logo-slider">
+                        </div>
+                        <div>
+                            <img src="img/sponsors/GIV logo.png" class="sponsor-logo-slider">
+                        </div>
+                        <div>
+                            <img src="img/sponsors/IndoConnect.jpg" class="sponsor-logo-slider">
+                        </div>
+                        <div>
+                            <img src="img/sponsors/KBRI.png" class="sponsor-logo-slider">
+                        </div>
+                        <div>
+                            <img src="img/sponsors/Logo_Rumah Budaya Indonesia.jpg" class="sponsor-logo-slider">
+                        </div>
+                        <div>
+                            <img src="img/sponsors/satu-indonesia.png" class="sponsor-logo-slider">
+                        </div>
+                        <div>
+                            <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo-slider">
+                        </div>
+                        <div>
+                            <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo-slider">
+                        </div>
+                        <div>
+                            <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo-slider">
+                        </div>
+                        <div>
+                            <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo-slider">
+                        </div>
                     </div>
                 </div>
 
-                <div class="container-fluid social-media-container">
+                <div class="col-xs-2">
+                    <div class="container-fluid social-media-container">
                     <a href="http://facebook.com" target="_blank">
                         <img src="img/social-media/FB-f-Logo__blue_57.png" class="social-media-icon navbar-text pull-right">
                     </a>
@@ -321,6 +400,7 @@
                     <a href="http://youtube.com" target="_blank">
                         <img src="img/social-media/YouTube-social-icon_red_48px.png" class="social-media-icon pull-right">
                     </a>
+                    </div>
                 </div>
             </nav>
         </div>

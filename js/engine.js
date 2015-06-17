@@ -3,7 +3,7 @@
 var slideProperties = {
     n: 6,
     curSlideId: 0,
-    scrollListener: false,
+    scrollListener: true,
     footer: {
         selector: $('#footer'),
         visibility: true
@@ -62,7 +62,7 @@ slideProperties.changeSlide = function (targetSlide) {
         this.footer.show();
     }
     
-    this.checkActiveLink(targetSlide);
+    // this.checkActiveLink(targetSlide);
     Reveal.slide(targetSlide, 0, 0);
     
     this.curSlideId = targetSlide;
@@ -140,6 +140,45 @@ $(document).ready(function () {
         autoplay: true,
         autoplaySpeed: 5000,
         arrows: false,
+        swipeToSlide: true,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 5
+                }
+            },
+            {
+                breakpoint: 950,
+                settings: {
+                    slidesToShow: 4
+                }
+            },
+            {
+                breakpoint: 850,
+                settings: {
+                    slidesToShow: 3
+                }
+            },
+            {
+                breakpoint: 800,
+                settings: {
+                    slidesToShow: 2
+                }
+            }
+        ]
+    });
+
+    $(".sponsor-page-slider").slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        variableWidth: true,
+        speed: 300,
+        infinite: true,
+        dots: false,
+        autoplay: true,
+        autoplaySpeed: 5000,
+        arrows: false,
         swipeToSlide: true
     });
 
@@ -156,6 +195,10 @@ $(document).ready(function () {
 
     // On keyboard control
     $(document).keydown(function (e) {
+        if (!slideProperties.scrollListener) {
+            return;
+        }
+
         var nextSlide;
         e = e || window.event;
 
@@ -175,6 +218,10 @@ $(document).ready(function () {
 
     // On mouse scroll control
     $(document).on("DOMMouseScroll mousewheel", function (e) {
+        if (!slideProperties.scrollListener) {
+            return;
+        }
+
         var nextSlide;
         if (e.originalEvent.detail > 0 || e.originalEvent.wheelDelta < 0) {
             nextSlide = slideProperties.curSlideId + 1;
@@ -183,5 +230,26 @@ $(document).ready(function () {
             nextSlide = slideProperties.curSlideId - 1;
             slideProperties.changeSlide(nextSlide, 0);
         }
+    });
+
+    // Check active link
+    Reveal.addEventListener("slidechanged", function (event) {
+        if (!slideProperties.scrollListener) {
+            return;
+        }
+
+        var activeLinkIndex = parseInt(event.currentSlide.getAttribute("data-active-link"));
+        slideProperties.checkActiveLink(activeLinkIndex);
+    });
+
+    // Show modal on cast image click
+    $(".cast-image").click(function () {
+        slideProperties.scrollListener = false;
+        var castName = this.getAttribute("data-name");
+        $("#cast-" + castName).modal();
+
+        $("#cast-" + castName).on("hidden.bs.modal", function () {
+            slideProperties.scrollListener = true;
+        });
     });
 });

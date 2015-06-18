@@ -238,10 +238,17 @@ a:hover {
 .cast-description-modal .close {
     position: fixed;
     top: 7px;
-    right: 20px;
     float: none;
     font-size: 40px;
     opacity: 0.4;
+}
+
+.close-right {
+    right: 20px;
+}
+
+.close-left {
+    left: 20px;
 }
 
 .cast-description-modal > .modal-content {
@@ -254,11 +261,26 @@ a:hover {
 
 .cast-description-modal > .modal-content > .modal-body > .container-fluid {
     color: #333333;
+}
+
+.cast-description-container-left {
     padding-left: 0;
+    padding-right: 0;
+}
+
+.cast-description-container-right {
+    padding-left: 47px;
+    padding-right: 0;
 }
 
 .cast-description-image-container {
+    width: 320px;
     padding-left: 0;
+    padding-right: 0;
+}
+
+.cast-description-container-right .cast-description-image-container {
+    float: right;
 }
 
 .cast-description-image {
@@ -269,6 +291,16 @@ a:hover {
     margin-top: 50px;
 }
 
+.cast-description-container-right > .cast-description-text-container {
+    padding-left: 15px;
+    padding-right: 0;
+}
+
+.cast-description-container-left .cast-description-text-container {
+    padding-left: 63px;
+    padding-right: 0;
+}
+
 .cast-description-header {
     margin-bottom: 10px;
 }
@@ -277,6 +309,19 @@ a:hover {
     margin-bottom: 20px;
     font-size: 15px;
     line-height: 22px;
+}
+
+.cast-description-container-left .cast-description-text-container .col-xs-12 {
+    padding-right: 0;
+}
+
+.cast-description-container-left .cast-description-image {
+    float: left;
+}
+
+.cast-description-container-right .cast-description-image {
+    float: right;
+    padding-right: 0;
 }
 
 .history-container {
@@ -500,7 +545,7 @@ a:hover {
 
 @media all and (min-width: 1440px) {
     .cast-description-image-container {
-        width: 50%;
+        width: 44.5%;
     }
 
     .cast-description-image {
@@ -520,6 +565,11 @@ a:hover {
         font-size: 16px;
     }
 
+    .cast-description-container-right > .cast-description-text-container {
+        padding-left: 12px;
+        padding-right: 3px;
+    }
+
     #synopsis-title {
         font-size: 50px;
         margin-bottom: 20px;
@@ -537,7 +587,7 @@ a:hover {
     }
 
     .cast-description-image-container {
-        width: 45%;
+        width: 40.4%;
     }
 
     .cast-description-image {
@@ -547,6 +597,11 @@ a:hover {
     .cast-description-text-container {
         width: 55%;
         margin-top: 70px;
+    }
+
+    .cast-description-container-right > .cast-description-text-container {
+        padding-left: 19px;
+        padding-right: 3px;
     }
 
     .cast-description-header {

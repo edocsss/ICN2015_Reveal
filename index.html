@@ -24,6 +24,16 @@
         <link href="vendor/slick-1.5.0/slick/slick-theme.css" rel="stylesheet">
         <link href="vendor/reveal.js-3.1.0/css/reveal.css" rel="stylesheet">
         <link href="css/style-reveal.css" rel="stylesheet">
+
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-64309292-1', 'auto');
+            ga('send', 'pageview');
+        </script>
     </head>
     <body>
         <div class="loading-layer">
@@ -52,11 +62,12 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav">
-                            <li class=""><a href="#" data-slide="1">SYNOPSIS</a></li>
-                            <li class=""><a href="#" data-slide="2">CASTS</a></li>
-                            <li class=""><a href="#" data-slide="3">HISTORY</a></li>
-                            <li class=""><a href="#" data-slide="4">SPONSORS</a></li>
-                            <li class=""><a href="#" data-slide="5">BUY TICKET!</a></li>
+                            <li class=""><a href="" onclick="return false;" data-slide="1">SYNOPSIS</a></li>
+                            <li class=""><a href="" onclick="return false;" data-slide="2">CASTS</a></li>
+                            <li class=""><a href="" onclick="return false;" data-slide="3">HISTORY</a></li>
+                            <li class=""><a href="" onclick="return false;" data-slide="4">SPONSORS</a></li>
+                            <li class=""><a href="" onclick="return false;" data-slide="5">PARTNERS</a></li>
+                            <li class=""><a href="" onclick="return false;" data-slide="6">BUY TICKET!</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
@@ -119,7 +130,7 @@
                         </div>
 
                         <div class="col-xs-4 cast-outer-container">
-                            <img src="img/cast_640_350/Malin-1.jpg" class="cast-image" data-name="malin">
+                            <img src="img/cast_640_960/Malin-2.jpg" class="cast-image" data-name="malin">
                         </div>
 
                         <div class="col-xs-4 cast-outer-container">
@@ -138,6 +149,15 @@
                     </section>
 
                     <section class="history-slides-container">
+                        <div id="about-icn" class="timeline-clicking-box"></div>
+                        <div id="icn2014" class="timeline-clicking-box"></div>
+                        <div id="icn2013" class="timeline-clicking-box"></div>
+                        <div id="icn2011" class="timeline-clicking-box"></div>
+                        <div id="icn2010" class="timeline-clicking-box"></div>
+                        <div id="icn2008" class="timeline-clicking-box"></div>
+
+                        <img src="img/timeline-small.png" class="timeline">
+                        
                         <section data-active-link="3">
                             <div class="section-background-container">
                                 <img src="img/history-2-crop.jpg" class="section-background-image">
@@ -160,28 +180,144 @@
                             </div>
                         </section>
 
-                        <section class="history-container">
+                        <section>
+                            <div class="section-background-container">
+                                <img src="img/history-2-crop.jpg" class="section-background-image">
+                            </div>
                             
+                            <div class="history-container">
+                                <div class="row header">
+                                    <div class="col-md-12 col-lg-12">
+                                        <h2 class="text-center">ICN 2014: Angkara</h2>
+                                    </div>
+                                </div>
+                                
+                                <div class="row text">
+                                    <div class="col-xs-11 col-md-7 col-lg-7 history center-block no-float text-justify">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam blandit sollicitudin lacus hendrerit suscipit. Nulla commodo nulla eget felis mollis tincidunt. Aenean nisi sapien, pulvinar nec venenatis quis, lobortis eget eros. Phasellus vehicula, lacus a auctor sodales, enim est condimentum lectus, non mollis arcu ipsum quis lectus. Morbi tempor sodales nulla, quis posuere nisi porttitor ut. Vestibulum tempus bibendum erat, eget aliquet diam luctus in. Mauris semper dapibus metus non pretium. Nunc tristique accumsan felis nec rutrum. Maecenas cursus pharetra eleifend. Vivamus sit amet sagittis odio.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </section>
 
-                        <section class="history-container">
+                        <section>
+                            <div class="section-background-container">
+                                <img src="img/history-2-crop.jpg" class="section-background-image">
+                            </div>
                             
+                            <div class="history-container">
+                                <div class="row header">
+                                    <div class="col-md-12 col-lg-12">
+                                        <h2 class="text-center">ICN 2013: Neutraregni</h2>
+                                    </div>
+                                </div>
+                                
+                                <div class="row text">
+                                    <div class="col-xs-11 col-md-7 col-lg-7 history center-block no-float text-justify">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam blandit sollicitudin lacus hendrerit suscipit. Nulla commodo nulla eget felis mollis tincidunt. Aenean nisi sapien, pulvinar nec venenatis quis, lobortis eget eros. Phasellus vehicula, lacus a auctor sodales, enim est condimentum lectus, non mollis arcu ipsum quis lectus. Morbi tempor sodales nulla, quis posuere nisi porttitor ut. Vestibulum tempus bibendum erat, eget aliquet diam luctus in. Mauris semper dapibus metus non pretium. Nunc tristique accumsan felis nec rutrum. Maecenas cursus pharetra eleifend. Vivamus sit amet sagittis odio.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </section>
 
-                        <section class="history-container">
+                        <section>
+                            <div class="section-background-container">
+                                <img src="img/history-2-crop.jpg" class="section-background-image">
+                            </div>
                             
+                            <div class="history-container">
+                                <div class="row header">
+                                    <div class="col-md-12 col-lg-12">
+                                        <h2 class="text-center">ICN2011</h2>
+                                    </div>
+                                </div>
+                                
+                                <div class="row text">
+                                    <div class="col-xs-11 col-md-7 col-lg-7 history center-block no-float text-justify">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam blandit sollicitudin lacus hendrerit suscipit. Nulla commodo nulla eget felis mollis tincidunt. Aenean nisi sapien, pulvinar nec venenatis quis, lobortis eget eros. Phasellus vehicula, lacus a auctor sodales, enim est condimentum lectus, non mollis arcu ipsum quis lectus. Morbi tempor sodales nulla, quis posuere nisi porttitor ut. Vestibulum tempus bibendum erat, eget aliquet diam luctus in. Mauris semper dapibus metus non pretium. Nunc tristique accumsan felis nec rutrum. Maecenas cursus pharetra eleifend. Vivamus sit amet sagittis odio.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </section>
 
-                        <section class="history-container">
+                        <section>
+                            <div class="section-background-container">
+                                <img src="img/history-2-crop.jpg" class="section-background-image">
+                            </div>
                             
+                            <div class="history-container">
+                                <div class="row header">
+                                    <div class="col-md-12 col-lg-12">
+                                        <h2 class="text-center">ICN2010</h2>
+                                    </div>
+                                </div>
+                                
+                                <div class="row text">
+                                    <div class="col-xs-11 col-md-7 col-lg-7 history center-block no-float text-justify">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam blandit sollicitudin lacus hendrerit suscipit. Nulla commodo nulla eget felis mollis tincidunt. Aenean nisi sapien, pulvinar nec venenatis quis, lobortis eget eros. Phasellus vehicula, lacus a auctor sodales, enim est condimentum lectus, non mollis arcu ipsum quis lectus. Morbi tempor sodales nulla, quis posuere nisi porttitor ut. Vestibulum tempus bibendum erat, eget aliquet diam luctus in. Mauris semper dapibus metus non pretium. Nunc tristique accumsan felis nec rutrum. Maecenas cursus pharetra eleifend. Vivamus sit amet sagittis odio.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </section>
 
-                        <section class="history-container">
+                        <section>
+                            <div class="section-background-container">
+                                <img src="img/history-2-crop.jpg" class="section-background-image">
+                            </div>
                             
+                            <div class="history-container">
+                                <div class="row header">
+                                    <div class="col-md-12 col-lg-12">
+                                        <h2 class="text-center">ICN2008</h2>
+                                    </div>
+                                </div>
+                                
+                                <div class="row text">
+                                    <div class="col-xs-11 col-md-7 col-lg-7 history center-block no-float text-justify">
+                                        <p>
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam blandit sollicitudin lacus hendrerit suscipit. Nulla commodo nulla eget felis mollis tincidunt. Aenean nisi sapien, pulvinar nec venenatis quis, lobortis eget eros. Phasellus vehicula, lacus a auctor sodales, enim est condimentum lectus, non mollis arcu ipsum quis lectus. Morbi tempor sodales nulla, quis posuere nisi porttitor ut. Vestibulum tempus bibendum erat, eget aliquet diam luctus in. Mauris semper dapibus metus non pretium. Nunc tristique accumsan felis nec rutrum. Maecenas cursus pharetra eleifend. Vivamus sit amet sagittis odio.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
                         </section>
                     </section>
 
                     <section class="sponsors-container" data-active-link="4">
+                        <div class="container-fluid text-justify">
+                            <div class="container-fluid">
+                                <div class="row sponsor-row">
+                                    <div class="col-xs-12">
+                                        <h3 class="text-center">Platinum</h3>
+                                    </div>
+                                    <div class="col-xs-12 sponsor-logo-container text-center">
+                                        <img src="img/page-sponsors/01 Platinum Sponsor_AstraOtoparts -H copy.jpg" class="sponsor-logo">
+                                    </div>
+                                </div>
+
+                                <div class="row sponsor-row">
+                                    <div class="col-xs-12">
+                                        <h3 class="text-center">Silver</h3>
+                                    </div>
+                                    <div class="col-xs-12 sponsor-logo-container text-center">
+                                        <img src="img/page-sponsors/02 Silver Sponsor Astra Asuransi-1.jpg" class="sponsor-logo">
+                                        <img src="img/page-sponsors/03 Silver Sponsor Honda.jpg" class="sponsor-logo">
+                                        <img src="img/page-sponsors/04 Silver Sponsor MAN copy.jpg" class="sponsor-logo">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- <section class="sponsors-container" data-active-link="4">
                         <div class="container-fluid text-justify">
                             <div class="row sponsor-row">
                                 <div class="col-xs-12">
@@ -195,7 +331,20 @@
                                         <h3 class="text-center">Platinum</h3>
                                     </div>
                                     <div class="col-xs-12 sponsor-logo-container text-center">
-                                        <div class="sponsor-page-slider">
+                                        <img src="img/sponsors/01 Platinum Sponsor_AstraOtoparts -H.jpg" class="sponsor-logo">
+                                    </div>
+                                </div>
+
+                                <div class="row sponsor-row">
+                                    <div class="col-xs-12">
+                                        <h3 class="text-center">Silver</h3>
+                                    </div>
+                                    <div class="col-xs-12 sponsor-logo-container text-center">
+                                        <img src="img/sponsors/02 Silver Sponsor Astra Asuransi.jpg" class="sponsor-logo">
+                                        <img src="img/sponsors/03 Silver Sponsor Honda.jpg" class="sponsor-logo">
+                                        <img src="img/sponsors/04 Silver Sponsor MAN copy.jpg" class="sponsor-logo">
+
+                                        <!-- <div class="sponsor-page-slider">
                                             <div>
                                                 <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
                                             </div>
@@ -223,10 +372,13 @@
 
                                 <div class="row sponsor-row">
                                     <div class="col-xs-12">
-                                        <h3 class="text-center">Gold</h3>
+                                        <h3 class="text-center">Media Partner</h4>
                                     </div>
                                     <div class="col-xs-12 sponsor-logo-container text-center">
-                                        <div class="sponsor-page-slider">
+                                        <img src="img/sponsors/05 Media Partner GIV copy.jpg" class="sponsor-logo">
+                                        <img src="img/sponsors/06 Media Partner Radar copy.jpg" class="sponsor-logo">
+                                        <img src="img/sponsors/07 Media Partner Indoconnect copy.jpg" class="sponsor-logo">
+                                        div class="sponsor-page-slider">
                                             <div>
                                                 <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
                                             </div>
@@ -254,41 +406,13 @@
 
                                 <div class="row sponsor-row">
                                     <div class="col-xs-12">
-                                        <h3 class="text-center">Silver</h4>
+                                        <h3 class="text-center">Supported By</h4>
                                     </div>
                                     <div class="col-xs-12 sponsor-logo-container text-center">
-                                        <div class="sponsor-page-slider">
-                                            <div>
-                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
-                                            </div>
-                                            <div>
-                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
-                                            </div>
-                                            <div>
-                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
-                                            </div>
-                                            <div>
-                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
-                                            </div>
-                                            <div>
-                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
-                                            </div>
-                                            <div>
-                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
-                                            </div>
-                                            <div>
-                                                <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row sponsor-row">
-                                    <div class="col-xs-12">
-                                        <h3 class="text-center">Bronze</h4>
-                                    </div>
-                                    <div class="col-xs-12 sponsor-logo-container text-center">
-                                        <div class="sponsor-page-slider">
+                                        <img src="img/sponsors/08 Supported by BISA copy.jpg" class="sponsor-logo">
+                                        <img src="img/sponsors/09 Supported by Rumah Budaya.jpg" class="sponsor-logo">
+                                        <img src="img/sponsors/10 Supported By KBRI.jpg" class="sponsor-logo">
+                                        <!-- <div class="sponsor-page-slider">
                                             <div>
                                                 <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo">
                                             </div>
@@ -315,9 +439,37 @@
                                 </div>
                             </div>
                         </div>
+                    </section> -->
+
+                    <section class="partners-container" data-active-link="5">
+                        <div class="container-fluid text-justify">
+                            <div class="container-fluid">
+                                <div class="row sponsor-row">
+                                    <div class="col-xs-12">
+                                        <h3 class="text-center">Media Partners</h3>
+                                    </div>
+                                    <div class="col-xs-12 sponsor-logo-container text-center">
+                                        <img src="img/page-sponsors/05 Media Partner GIV.jpg" class="sponsor-logo">
+                                        <img src="img/page-sponsors/06 Media Partner Radar copy.jpg" class="sponsor-logo">
+                                        <img src="img/page-sponsors/07 Media Partner Indoconnect copy.jpg" class="sponsor-logo">
+                                    </div>
+                                </div>
+
+                                <div class="row sponsor-row">
+                                    <div class="col-xs-12">
+                                        <h3 class="text-center">Supported By</h3>
+                                    </div>
+                                    <div class="col-xs-12 sponsor-logo-container text-center">
+                                        <img src="img/page-sponsors/08 Supported by BISA.jpg" class="sponsor-logo">
+                                        <img src="img/page-sponsors/09 Supported by Rumah Budaya copy.jpg" class="sponsor-logo">
+                                        <img src="img/page-sponsors/10 Supported By KBRI copy.jpg" class="sponsor-logo">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </section>
 
-                    <section data-active-link="5">
+                    <section data-active-link="6">
                         <div class="ticket-container">
                             <div id="clicking-area">
                             </div>
@@ -351,40 +503,34 @@
                 <div class="col-xs-10">
                     <div class="sponsor-slider">
                         <div>
-                            <img src="img/sponsors/AstraOtoparts -H.jpg" class="sponsor-logo-slider">
+                            <img src="img/sponsors/01 Platinum Sponsor_AstraOtoparts -H.jpg" class="sponsor-logo-slider">
                         </div>
                         <div>
-                            <img src="img/sponsors/Radar Singapura.jpg" class="sponsor-logo-slider">
+                            <img src="img/sponsors/02 Silver Sponsor Astra Asuransi.jpg" class="sponsor-logo-slider">
                         </div>
                         <div>
-                            <img src="img/sponsors/bisa logo png.PNG" class="sponsor-logo-slider">
+                            <img src="img/sponsors/03 Silver Sponsor Honda.jpg" class="sponsor-logo-slider">
                         </div>
                         <div>
-                            <img src="img/sponsors/GIV logo.png" class="sponsor-logo-slider">
+                            <img src="img/sponsors/04 Silver Sponsor MAN copy.jpg" class="sponsor-logo-slider">
                         </div>
                         <div>
-                            <img src="img/sponsors/IndoConnect.jpg" class="sponsor-logo-slider">
+                            <img src="img/sponsors/05 Media Partner GIV copy.jpg" class="sponsor-logo-slider">
                         </div>
                         <div>
-                            <img src="img/sponsors/KBRI.png" class="sponsor-logo-slider">
+                            <img src="img/sponsors/06 Media Partner Radar copy.jpg" class="sponsor-logo-slider">
                         </div>
                         <div>
-                            <img src="img/sponsors/Logo_Rumah Budaya Indonesia.jpg" class="sponsor-logo-slider">
+                            <img src="img/sponsors/07 Media Partner Indoconnect copy.jpg" class="sponsor-logo-slider">
                         </div>
                         <div>
-                            <img src="img/sponsors/satu-indonesia.png" class="sponsor-logo-slider">
+                            <img src="img/sponsors/08 Supported by BISA copy.jpg" class="sponsor-logo-slider">
                         </div>
                         <div>
-                            <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo-slider">
+                            <img src="img/sponsors/09 Supported by Rumah Budaya.jpg" class="sponsor-logo-slider">
                         </div>
                         <div>
-                            <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo-slider">
-                        </div>
-                        <div>
-                            <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo-slider">
-                        </div>
-                        <div>
-                            <img src="img/logo/logonilamalt_invert_websize.png" class="sponsor-logo-slider">
+                            <img src="img/sponsors/10 Supported By KBRI.jpg" class="sponsor-logo-slider">
                         </div>
                     </div>
                 </div>
@@ -416,7 +562,7 @@
 
                         <div class="container-fluid cast-description-container-left">
                             <div class="col-xs-5 cast-description-image-container">
-                                <img src="img/cast_640_960/Malin-1.jpg" class="cast-description-image">
+                                <img src="img/cast_640_960/Malin-2.jpg" class="cast-description-image">
                             </div>
 
                             <div class="col-xs-7 cast-description-text-container">

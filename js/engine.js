@@ -1,7 +1,7 @@
 /* --------------------------------------------------------------------------------------------------------------------- */
 
 var slideProperties = {
-    n: 6,
+    n: 7,
     curSlideId: 0,
     scrollListener: true,
     footer: {
@@ -56,9 +56,9 @@ slideProperties.changeSlide = function (targetSlide) {
         }, 700);
     }
 
-    if (targetSlide >= this.n - 2 && this.footer.visibility === true) {
+    if (targetSlide >= this.n - 3 && this.footer.visibility === true) {
         this.footer.hide();
-    } else if (targetSlide < this.n - 2 && this.footer.visibility === false) {
+    } else if (targetSlide < this.n - 3 && this.footer.visibility === false) {
         this.footer.show();
     }
     
@@ -118,6 +118,160 @@ loadingProperties.loadingLogo.waitForImages(function () {
 
 /* ******************************************************************************************* */
 
+var timeline = {
+    selector: $(".timeline"),
+    height: 200,
+    diameter: 16.5,
+    lineLength: 20,
+    left: $(".timeline").css("left")
+};
+
+timeline.initialize = function () {
+    if (window.innerHeight > 700) {
+            this.height = 250;
+            this.diameter = 22;
+            this.lineLength = 24;
+        } else {
+            this.height = 200;
+            this.diameter = 16.5;
+            this.lineLength = 20;
+        }
+
+        this.top = (window.innerHeight / 2) - (this.height / 2) - 20;
+        this.middlePoint = this.top + this.height / 2 - 20;
+
+        $(".timeline").css("top", this.top);
+        $("#about-icn").css("top", this.top);
+        $("#icn2014").css("top", this.top + 1 * this.diameter + 1 * this.lineLength);
+        $("#icn2013").css("top", this.top + 2 * this.diameter + 2 * this.lineLength);
+        $("#icn2011").css("top", this.top + 3 * this.diameter + 3 * this.lineLength);
+        $("#icn2010").css("top", this.top + 4 * this.diameter + 4 * this.lineLength);
+        $("#icn2008").css("top", this.top + 5 * this.diameter + 5 * this.lineLength);
+
+        $("#about-icn").css({
+                "width": this.diameter,
+                "height": this.diameter,
+                "top": this.top
+            });
+
+        $("#icn2014").css({
+            "width": this.diameter,
+            "height": this.diameter,
+            "top": this.top + 1 * this.diameter + 1 * this.lineLength
+        });
+
+        $("#icn2013").css({
+            "width": this.diameter,
+            "height": this.diameter,
+            "top": this.top + 2 * this.diameter + 2 * this.lineLength
+        });
+
+        $("#icn2011").css({
+            "width": this.diameter,
+            "height": this.diameter,
+            "top": this.top + 3 * this.diameter + 3 * this.lineLength
+        });
+
+        $("#icn2010").css({
+            "width": this.diameter,
+            "height": this.diameter,
+            "top": this.top + 4 * this.diameter + 4 * this.lineLength
+        });
+
+        $("#icn2008").css({
+            "width": this.diameter,
+            "height": this.diameter,
+            "top": this.top + 5 * this.diameter + 5 * this.lineLength
+        });
+
+    // Clicking area click event
+    $("#about-icn").click(function () {
+        Reveal.slide(3, 0, 0);
+    });
+
+    $("#icn2014").click(function () {
+        Reveal.slide(3, 1, 0);
+    });
+
+    $("#icn2013").click(function () {
+        Reveal.slide(3, 2, 0);
+    });
+
+    $("#icn2011").click(function () {
+        Reveal.slide(3, 3, 0);
+    });
+
+    $("#icn2010").click(function () {
+        Reveal.slide(3, 4, 0);
+    });
+
+    $("#icn2008").click(function () {
+        Reveal.slide(3, 5, 0);
+    });
+
+    // Repositioning on resize
+    $(window).resize((function () {
+        if (window.innerHeight > 700) {
+            this.height = 250;
+            this.diameter = 22;
+            this.lineLength = 24;
+        } else {
+            this.height = 200;
+            this.diameter = 16.5;
+            this.lineLength = 20;
+        }
+
+        this.top = (window.innerHeight / 2) - (this.height / 2) - 20;
+        this.middlePoint = this.top + this.height / 2 - 20;
+
+        $(".timeline").css("top", this.top);
+        $("#about-icn").css("top", this.top);
+        $("#icn2014").css("top", this.top + 1 * this.diameter + 1 * this.lineLength);
+        $("#icn2013").css("top", this.top + 2 * this.diameter + 2 * this.lineLength);
+        $("#icn2011").css("top", this.top + 3 * this.diameter + 3 * this.lineLength);
+        $("#icn2010").css("top", this.top + 4 * this.diameter + 4 * this.lineLength);
+        $("#icn2008").css("top", this.top + 5 * this.diameter + 5 * this.lineLength);
+
+        $("#about-icn").css({
+                "width": this.diameter,
+                "height": this.diameter,
+                "top": this.top
+            });
+
+        $("#icn2014").css({
+            "width": this.diameter,
+            "height": this.diameter,
+            "top": this.top + 1 * this.diameter + 1 * this.lineLength
+        });
+
+        $("#icn2013").css({
+            "width": this.diameter,
+            "height": this.diameter,
+            "top": this.top + 2 * this.diameter + 2 * this.lineLength
+        });
+
+        $("#icn2011").css({
+            "width": this.diameter,
+            "height": this.diameter,
+            "top": this.top + 3 * this.diameter + 3 * this.lineLength
+        });
+
+        $("#icn2010").css({
+            "width": this.diameter,
+            "height": this.diameter,
+            "top": this.top + 4 * this.diameter + 4 * this.lineLength
+        });
+
+        $("#icn2008").css({
+            "width": this.diameter,
+            "height": this.diameter,
+            "top": this.top + 5 * this.diameter + 5 * this.lineLength
+        });
+    }).bind(this));
+};
+
+/* ******************************************************************************************* */
+
 $(document).ready(function () {
     // Reveal
     Reveal.initialize({
@@ -127,6 +281,9 @@ $(document).ready(function () {
         keyboard: false,
         width: window.innerwidth,
         height: window.innerwidth,
+        swipeToSlide: true,
+        backgroundTransition: 'none',
+        viewDistance: 7
     });
 
     // Slick
@@ -178,8 +335,7 @@ $(document).ready(function () {
         dots: false,
         autoplay: true,
         autoplaySpeed: 5000,
-        arrows: false,
-        swipeToSlide: true
+        arrows: false
     });
 
     // On navbar link clicked
@@ -252,4 +408,7 @@ $(document).ready(function () {
             slideProperties.scrollListener = true;
         });
     });
+
+    // Timeline
+    timeline.initialize();
 });

@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>ICN 2015 - NILAM</title>
+        <title>ICN 2015 - NILAM: A Musical</title>
 
         <!-- REDIRECT FOR MOBILE PHONE -->
         <script type="text/javascript">
@@ -19,6 +19,7 @@
         </script>
 
         <link href='http://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+        <link rel="icon" href="img/favicon/icon.png">
         <link href="vendor/bootstrap-3.3.4-dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="vendor/slick-1.5.0/slick/slick.css" rel="stylesheet">
         <link href="vendor/slick-1.5.0/slick/slick-theme.css" rel="stylesheet">
@@ -37,7 +38,7 @@
     </head>
     <body>
         <div class="loading-layer">
-            <img src="img/logo/loading-logo.png" class="loading-logo center-block text-center">
+            <!-- <img src="img/logo/loading-logo.png" class="loading-logo center-block text-center"> -->
         </div>
         
         <div class="main-container">
@@ -81,13 +82,21 @@
             <div class="reveal">
                 <div class="slides">
                     <section data-active-link="0">
-                        <div class="col-xs-12 text-center" style="margin-top: 100px">
+                        <!-- <div class="col-xs-12 text-center" style="margin-top: 100px">
                             <p>
                                 NILAM a musical<br>
                                 12 SEPTEMBER<br>
                                 NLB
                             </p>
+                        </div> -->
+
+                        <div style="width: 100%; height: 100%">
+                            <video id="welcome-video" style="width: 100%; height: auto;" preload="none">
+                                <source src="video/web.mp4" type="video/mp4">
+                            </video>
                         </div>
+
+                        <!-- <div id="player"></div> -->
                     </section>
 
                     <section class="synopsis-container container-fluid" data-active-link="1">
@@ -770,6 +779,7 @@
         <script src="vendor/wait-for-images/waitforimages.min.js"></script>
         <script src="vendor/reveal.js-3.1.0/js/reveal.js"></script>
         <script src="vendor/slick-1.5.0/slick/slick.min.js"></script>
+        <script src="https://www.youtube.com/iframe_api"></script>
 
         <script type="text/javascript">
             // Hide all slides other than the first slide

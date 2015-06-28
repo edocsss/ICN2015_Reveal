@@ -17,9 +17,8 @@ html, body {
 }
 
 body {
-    /*background-image: url("../img/background.svg");*/
-    /*background-image: url("../img/a.svg");*/
-    opacity: 0;
+    background-image: url("../img/background.svg");
+    opacity: 1;
 }
 
 h1, h2, h3, h4, h5, h6, .navbar-nav > li > a {
@@ -41,6 +40,7 @@ p, div {
 }
 
 .loading-layer {
+    background-color: #010109;
     height: 100%;
     width: 100%;
     position: fixed;
@@ -50,10 +50,6 @@ p, div {
 
 a:hover {
     background-color: transparent;
-}
-
-.main-container {
-    opacity: 0;
 }
 
 .navbar {
@@ -317,8 +313,8 @@ a:hover {
 
 .cast-description-text {
     margin-bottom: 20px;
-    font-size: 15px;
-    line-height: 22px;
+    font-size: 18px;
+    line-height: 24px;
 }
 
 .cast-description-container-left .cast-description-text-container .col-xs-12 {
@@ -345,7 +341,7 @@ a:hover {
 }
 
 .history-container > .text {
-    opacity: 0.8;
+    opacity: 0.9;
 }
 
 .history-container > .row > div > h2.text-center {
@@ -356,7 +352,7 @@ a:hover {
 
 .history > p {
     text-align: justify;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .timeline-clicking-box {
@@ -546,8 +542,13 @@ a:hover {
         padding-top: 110px;
     }
 
+    .history-container > .row > div > h2.text-center {
+        font-size: 60px;
+        margin-bottom: 30px;
+    }
+
     .history > p {
-        font-size: 18px;
+        font-size: 24px;
     }
 }
 
@@ -620,7 +621,8 @@ a:hover {
     }
 
     .cast-description-text {
-        font-size: 16px;
+        font-size: 18px;
+        line-height: 26px;
     }
 
     .cast-description-container-right > .cast-description-text-container {
@@ -671,8 +673,8 @@ a:hover {
     }
 
     .cast-description-text {
-        font-size: 19px;
-        line-height: 30px;
+        font-size: 22px;
+        line-height: 32px;
     }
 }
 

@@ -28,6 +28,7 @@ function WaveController () {
 /* Method Definitions */
 WaveController.prototype.initialize = function () {
 	this.particles = [];
+	console.log(WaveController.DETAIL);
 
 	// Generate wave particles
 	for (var i = 0; i < WaveController.DETAIL + 1; i++) {

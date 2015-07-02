@@ -45,15 +45,25 @@ slideProperties.changeSlide = function (targetSlide) {
     // Handle Canvas shown only in the last slide
     if (targetSlide === this.n - 1) {
         shipController.targetX = 0.4 * WIDTH;
+        shipController.draw = true;
+
         $(".canvas-container").animate({
             opacity: 1
         }, 1500);
+
+        console.log("INSIDE");
     } else {
         shipController.targetX = 0;
+        shipController.draw = false;
+        
         $(".canvas-container").stop().animate({
             opacity: 0
         }, 700);
+
+        console.log("OUTSIDE");
     }
+
+    console.log("HAHAHA");
 
     if (targetSlide === 0 && !video.ended) {
         video.play();
@@ -287,7 +297,6 @@ $(document).ready(function () {
         keyboard: false,
         width: window.innerwidth,
         height: window.innerwidth,
-        swipeToSlide: true,
         backgroundTransition: 'none',
         viewDistance: 7
     });
@@ -392,6 +401,26 @@ $(document).ready(function () {
             nextSlide = slideProperties.curSlideId - 1;
             slideProperties.changeSlide(nextSlide, 0);
         }
+    });
+
+    // On Swipe Left
+    $("html").on("swipeleft", function () {
+        if (!slideProperties.scrollListener) {
+            return;
+        }
+
+        nextSlide = slideProperties.curSlideId + 1;
+        slideProperties.changeSlide(nextSlide, 0);
+    });
+
+    // On Swipe Right
+    $("html").on("swiperight", function () {
+        if (!slideProperties.scrollListener) {
+            return;
+        }
+
+        nextSlide = slideProperties.curSlideId - 1;
+        slideProperties.changeSlide(nextSlide, 0);
     });
 
     // Check active link

@@ -1,32 +1,42 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="keywords" content="icn,nilam,malin,kundang,2015,ntu,singapore,sg,nanyang" />
+        <meta name="description" content="Nilam: A Musical" />  
+        <meta name="author" content="Edwin Candinegara" />
+        <meta property="og:image" content="img/logo/loading-logo.png">
+        <meta property="og:title" content="ICN 2015 - Nilam: A Musical"/>
+        <meta property="og:url" content="http://www.icnmusical.com/ticket/"/>
+        <meta property="og:description" content="Angkara: A Musical, tell the tale of Ken Arok, the long past ruler of Singhasari, a 13th century ancient Javanese kingdom. Taking Arok's own perspective, the story tells how he grew from a simple peasant with obsessive ambition to create a better Tumapel (his hometown), his struggle, love, and the journey that leads him into one of the most powerful King in Java." />
+      
         <title>ICN 2015 - NILAM: A Musical</title>
 
-        <!-- REDIRECT FOR MOBILE PHONE -->
-        <script type="text/javascript">
-            window.onresize = function () {
-                if (window.width < 800 || window.height < 600) {
-                   window.location = "mobile.html";
-                    alert("Please open this website on laptop or desktop!");
-                }
-            };
-
-            if (window.innerWidth < 800 || window.innerHeight < 600) {
-                window.location = "mobile.html";
-                alert("Please open this website on laptop or desktop!");
-            }
-        </script>
-
-        <link href='http://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
         <link rel="icon" href="img/favicon/icon.png">
         <link href="vendor/bootstrap-3.3.4-dist/css/bootstrap.min.css" rel="stylesheet">
         <link href="vendor/slick-1.5.0/slick/slick.css" rel="stylesheet">
         <link href="vendor/slick-1.5.0/slick/slick-theme.css" rel="stylesheet">
         <link href="vendor/reveal.js-3.1.0/css/reveal.css" rel="stylesheet">
+        <link href="vendor/sweet-alert/sweet-alert.css" rel="stylesheet">
         <link href="css/style-reveal.css" rel="stylesheet">
 
+        <script src="vendor/sweet-alert/sweet-alert.min.js"></script>
+        <script src="vendor/jquery/jquery-1.11.2.min.js"></script>
+
         <script>
+            if ($(window).width() < 800 || $(window).height() < 600) {
+                window.location = "mobile-warning/index.html";
+            } else if ($(window).width() < $(window).height()) {
+                setTimeout(function () {
+                    var v = document.getElementById("welcome-video");
+                    swal("Screen Orientation", "Please put your device screen orientation to landscape in order to fully experience our website");
+
+                    v.pause();
+                    $(".sweet-alert button.confirm").click(function () {
+                        v.play();
+                    });
+                }, 2000);
+            }
+
             (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
             (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
             m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -68,7 +78,7 @@
                             <li class=""><a href="" onclick="return false;" data-slide="3">HISTORY</a></li>
                             <li class=""><a href="" onclick="return false;" data-slide="4">SPONSORS</a></li>
                             <li class=""><a href="" onclick="return false;" data-slide="5">PARTNERS</a></li>
-                            <li class=""><a href="" onclick="return false;" data-slide="6">BUY TICKET!</a></li>
+                            <li class="" id="buy-ticket-link"><a href="" onclick="return false;" data-slide="6">BUY TICKET!</a></li>
                         </ul>
                     </div><!-- /.navbar-collapse -->
                 </div><!-- /.container-fluid -->
@@ -512,34 +522,34 @@
                 <div class="col-xs-10">
                     <div class="sponsor-slider">
                         <div>
-                            <img src="img/sponsors/01 Platinum Sponsor_AstraOtoparts -H.jpg" class="sponsor-logo-slider">
+                            <a href="" target="_blank"><img src="img/sponsors/01 Platinum Sponsor_AstraOtoparts -H.jpg" class="sponsor-logo-slider"></a>
                         </div>
                         <div>
-                            <img src="img/sponsors/02 Silver Sponsor Astra Asuransi.jpg" class="sponsor-logo-slider">
+                            <a href="" target="_blank"><img src="img/sponsors/02 Silver Sponsor Astra Asuransi.jpg" class="sponsor-logo-slider"></a>
                         </div>
                         <div>
-                            <img src="img/sponsors/03 Silver Sponsor Honda.jpg" class="sponsor-logo-slider">
+                            <a href="" target="_blank"><img src="img/sponsors/03 Silver Sponsor Honda.jpg" class="sponsor-logo-slider"></a>
                         </div>
                         <div>
-                            <img src="img/sponsors/04 Silver Sponsor MAN copy.jpg" class="sponsor-logo-slider">
+                            <a href="" target="_blank"><img src="img/sponsors/04 Silver Sponsor MAN copy.jpg" class="sponsor-logo-slider"></a>
                         </div>
                         <div>
-                            <img src="img/sponsors/05 Media Partner GIV copy.jpg" class="sponsor-logo-slider">
+                            <a href="" target="_blank"><img src="img/sponsors/05 Media Partner GIV copy.jpg" class="sponsor-logo-slider"></a>
                         </div>
                         <div>
-                            <img src="img/sponsors/06 Media Partner Radar copy.jpg" class="sponsor-logo-slider">
+                            <a href="" target="_blank"><img src="img/sponsors/06 Media Partner Radar copy.jpg" class="sponsor-logo-slider"></a>
                         </div>
                         <div>
-                            <img src="img/sponsors/07 Media Partner Indoconnect copy.jpg" class="sponsor-logo-slider">
+                            <a href="" target="_blank"><img src="img/sponsors/07 Media Partner Indoconnect copy.jpg" class="sponsor-logo-slider"></a>
                         </div>
                         <div>
-                            <img src="img/sponsors/08 Supported by BISA copy.jpg" class="sponsor-logo-slider">
+                            <a href="" target="_blank"><img src="img/sponsors/08 Supported by BISA copy.jpg" class="sponsor-logo-slider"></a>
                         </div>
                         <div>
-                            <img src="img/sponsors/09 Supported by Rumah Budaya.jpg" class="sponsor-logo-slider">
+                            <a href="" target="_blank"><img src="img/sponsors/09 Supported by Rumah Budaya.jpg" class="sponsor-logo-slider"></a>
                         </div>
                         <div>
-                            <img src="img/sponsors/10 Supported By KBRI.jpg" class="sponsor-logo-slider">
+                            <a href="" target="_blank"><img src="img/sponsors/10 Supported By KBRI.jpg" class="sponsor-logo-slider"></a>
                         </div>
                     </div>
                 </div>
@@ -771,7 +781,6 @@
             </div>
         </div>
 
-        <script src="vendor/jquery/jquery-1.11.2.min.js"></script>
         <script src="vendor/bootstrap-3.3.4-dist/js/bootstrap.min.js"></script>
         <script src="vendor/jquery-ui/jquery-ui.min.js"></script>
         <script src="vendor/jquery-mobile/jquery.mobile.custom.min.js"></script>
@@ -779,7 +788,6 @@
         <script src="vendor/wait-for-images/waitforimages.min.js"></script>
         <script src="vendor/reveal.js-3.1.0/js/reveal.js"></script>
         <script src="vendor/slick-1.5.0/slick/slick.min.js"></script>
-        <script src="https://www.youtube.com/iframe_api"></script>
 
         <script type="text/javascript">
             // Hide all slides other than the first slide

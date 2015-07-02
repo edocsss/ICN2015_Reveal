@@ -1,0 +1,149 @@
+@font-face {
+    font-family: Timeless;
+    src: url('../../fonts/Timeless.ttf');
+}
+
+@font-face {
+    font-family: LibrationSerif;
+    src: url('../../fonts/LibrationSerif-Regular.ttf');
+}
+
+html, body {
+	width: 100%;
+	height: 100%;
+	font-family: 'Lora', serif;
+    color: #FFFFFF;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+body {
+	background-image: url("../../img/background.svg");
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Timeless;
+    margin: 0;
+}
+
+.loading-layer {
+	background-color: #010109;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	display: block;
+	z-index: 100000;
+}
+
+.main-container-small {
+    width: 100%;
+    height: 100%;
+}
+
+.main-container-small > .container-fluid {
+    margin-top: 30px;
+}
+
+.date-text {
+    margin-bottom: 10px;
+    font-size: 26px;
+}
+
+.theatre-text {
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+.venue-text {
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.logo {
+    width: 45%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.9;
+}
+
+.main-logo {
+    margin-bottom: 20px;
+}
+
+.buy-ticket-button {
+    width: 70%;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.warning-text {
+    opacity: 0.9;
+    margin-bottom: 15px;
+}
+
+@media all and (max-width: 500px) {
+    .logo {
+        width: 100%;
+    }
+
+    .main-logo {
+        margin-bottom: 15px;
+    }
+
+    .date-text {
+        font-size: 22px;
+    }
+
+    .theatre-text {
+        font-size: 16px;
+    }
+
+    .venue-text {
+        font-size: 12px;
+        margin-bottom: 15px;
+    }
+}
+
+@media all and (min-width: 351px) and (max-width: 500px) {
+    .main-logo {
+        margin-bottom: 10px;
+    }
+
+    .venue-text {
+        margin-bottom: 10px;
+    }
+}
+
+@media all and (min-width: 501px) and (max-width: 650px) {
+    .logo {
+        width: 60%;
+    }
+
+    .main-logo {
+        margin-bottom: 10px;
+    }
+
+    .date-text {
+        font-size: 24px;
+    }
+
+    .theatre-text {
+        font-size: 18px;
+    }
+
+    .venue-text {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+}
+
+@media all and (min-width: 651px) and (max-width: 768px) {
+    .logo {
+        width: 55%;
+    }
+
+    .main-logo {
+        margin-bottom: 10px;
+    }
+}

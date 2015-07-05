@@ -11,7 +11,6 @@ var video = document.getElementById("welcome-video"),
 
 slideProperties.checkActiveLink = function (targetSlide) {
     // var targetBullet = this.activeBulletMapping[targetSlide];
-    // console.log(targetBullet, targetSlide);
 
     $(".nav").find(".active").removeClass('active');
     if (targetSlide === 0 /* || targetBullet === -1 */) {
@@ -60,18 +59,18 @@ slideProperties.changeSlide = function (targetSlide) {
         }, 700);
     }
 
+    // PROBLEM OCCURS HERE!!! IF REMOVE THE BACKGROUND, SLIDE IS SMOOTH
+
     // Change BODY BACKGROUND for SPONSORS and PARTNERS slide
-    console.log("TARGET: " + targetSlide);
-    if (targetSlide === this.n - 3 || targetSlide === this.n - 2) {
-        console.log("INSIDE");
-        $(".sponsor-bg-container").animate({
-            opacity: 1
-        }, 400);
-    } else {
-        $(".sponsor-bg-container").animate({
-            opacity: 0
-        }, 400);
-    }
+    // if (targetSlide === this.n - 3 || targetSlide === this.n - 2) {
+    //     $(".sponsor-bg-container").animate({
+    //         opacity: 1
+    //     }, 400);
+    // } else {
+    //     $(".sponsor-bg-container").animate({
+    //         opacity: 0
+    //     }, 400);
+    // }
 
     if (targetSlide === 0 && !video.ended) {
         video.play();
@@ -151,66 +150,68 @@ var timeline = {
     left: $(".timeline").css("left")
 };
 
+timeline.onResize = function () {
+    if (window.innerHeight > 700) {
+        this.height = 250;
+        this.diameter = 22;
+        this.lineLength = 24;
+    } else {
+        this.height = 200;
+        this.diameter = 16.5;
+        this.lineLength = 20;
+    }
+
+    this.top = (window.innerHeight / 2) - (this.height / 2) - 20;
+    this.middlePoint = this.top + this.height / 2 - 20;
+    this.width = $(".timeline").width();
+    
+    $(".timeline").css("top", this.top);
+    $("#about-icn").css("top", this.top);
+    $("#icn2014").css("top", this.top + 1 * this.diameter + 1 * this.lineLength);
+    $("#icn2013").css("top", this.top + 2 * this.diameter + 2 * this.lineLength);
+    $("#icn2011").css("top", this.top + 3 * this.diameter + 3 * this.lineLength);
+    $("#icn2010").css("top", this.top + 4 * this.diameter + 4 * this.lineLength);
+    $("#icn2008").css("top", this.top + 5 * this.diameter + 5 * this.lineLength);
+
+    $("#about-icn").css({
+        "width": this.width,
+        "height": this.diameter,
+        "top": this.top
+    });
+
+    $("#icn2014").css({
+        "width": this.width - 25,
+        "height": this.diameter,
+        "top": this.top + 1 * this.diameter + 1 * this.lineLength
+    });
+
+    $("#icn2013").css({
+        "width": this.width - 25,
+        "height": this.diameter,
+        "top": this.top + 2 * this.diameter + 2 * this.lineLength
+    });
+
+    $("#icn2011").css({
+        "width": this.width - 25,
+        "height": this.diameter,
+        "top": this.top + 3 * this.diameter + 3 * this.lineLength
+    });
+
+    $("#icn2010").css({
+        "width": this.width - 25,
+        "height": this.diameter,
+        "top": this.top + 4 * this.diameter + 4 * this.lineLength
+    });
+
+    $("#icn2008").css({
+        "width": this.width - 25,
+        "height": this.diameter,
+        "top": this.top + 5 * this.diameter + 5 * this.lineLength
+    });
+};
+
 timeline.initialize = function () {
-    // if (window.innerHeight > 700) {
-    //     this.height = 250;
-    //     this.diameter = 22;
-    //     this.lineLength = 24;
-    // } else {
-    //     this.height = 200;
-    //     this.diameter = 16.5;
-    //     this.lineLength = 20;
-    // }
-
-    // this.top = (window.innerHeight / 2) - (this.height / 2) - 20;
-    // this.middlePoint = this.top + this.height / 2 - 20;
-    // this.width = this.selector.css("width");
-
-    // $(".timeline").css("top", this.top);
-    // $("#about-icn").css("top", this.top);
-    // $("#icn2014").css("top", this.top + 1 * this.diameter + 1 * this.lineLength);
-    // $("#icn2013").css("top", this.top + 2 * this.diameter + 2 * this.lineLength);
-    // $("#icn2011").css("top", this.top + 3 * this.diameter + 3 * this.lineLength);
-    // $("#icn2010").css("top", this.top + 4 * this.diameter + 4 * this.lineLength);
-    // $("#icn2008").css("top", this.top + 5 * this.diameter + 5 * this.lineLength);
-
-    // $("#about-icn").css({
-    //     "width": this.width,
-    //     "height": this.diameter,
-    //     "top": this.top
-    // });
-
-    // $("#icn2014").css({
-    //     "width": this.width - 25,
-    //     "height": this.diameter,
-    //     "top": this.top + 1 * this.diameter + 1 * this.lineLength
-    // });
-
-    // $("#icn2013").css({
-    //     "width": this.width - 25,
-    //     "height": this.diameter,
-    //     "top": this.top + 2 * this.diameter + 2 * this.lineLength
-    // });
-
-    // $("#icn2011").css({
-    //     "width": this.width - 25,
-    //     "height": this.diameter,
-    //     "top": this.top + 3 * this.diameter + 3 * this.lineLength
-    // });
-
-    // $("#icn2010").css({
-    //     "width": this.width - 25,
-    //     "height": this.diameter,
-    //     "top": this.top + 4 * this.diameter + 4 * this.lineLength
-    // });
-
-    // $("#icn2008").css({
-    //     "width": this.width - 25,
-    //     "height": this.diameter,
-    //     "top": this.top + 5 * this.diameter + 5 * this.lineLength
-    // });
-
-    // Clicking area click event
+        // Clicking area click event
     $("#about-icn").click(function () {
         Reveal.slide(3, 0, 0);
     });
@@ -236,68 +237,10 @@ timeline.initialize = function () {
     });
 
     // Repositioning on resize
-    $(window).resize((function () {
-        if (window.innerHeight > 700) {
-            this.height = 250;
-            this.diameter = 22;
-            this.lineLength = 24;
-        } else {
-            this.height = 200;
-            this.diameter = 16.5;
-            this.lineLength = 20;
-        }
-
-        this.top = (window.innerHeight / 2) - (this.height / 2) - 20;
-        this.middlePoint = this.top + this.height / 2 - 20;
-        this.width = this.selector.width();
-        
-        $(".timeline").css("top", this.top);
-        $("#about-icn").css("top", this.top);
-        $("#icn2014").css("top", this.top + 1 * this.diameter + 1 * this.lineLength);
-        $("#icn2013").css("top", this.top + 2 * this.diameter + 2 * this.lineLength);
-        $("#icn2011").css("top", this.top + 3 * this.diameter + 3 * this.lineLength);
-        $("#icn2010").css("top", this.top + 4 * this.diameter + 4 * this.lineLength);
-        $("#icn2008").css("top", this.top + 5 * this.diameter + 5 * this.lineLength);
-
-        $("#about-icn").css({
-            "width": this.width,
-            "height": this.diameter,
-            "top": this.top
-        });
-
-        $("#icn2014").css({
-            "width": this.width - 25,
-            "height": this.diameter,
-            "top": this.top + 1 * this.diameter + 1 * this.lineLength
-        });
-
-        $("#icn2013").css({
-            "width": this.width - 25,
-            "height": this.diameter,
-            "top": this.top + 2 * this.diameter + 2 * this.lineLength
-        });
-
-        $("#icn2011").css({
-            "width": this.width - 25,
-            "height": this.diameter,
-            "top": this.top + 3 * this.diameter + 3 * this.lineLength
-        });
-
-        $("#icn2010").css({
-            "width": this.width - 25,
-            "height": this.diameter,
-            "top": this.top + 4 * this.diameter + 4 * this.lineLength
-        });
-
-        $("#icn2008").css({
-            "width": this.width - 25,
-            "height": this.diameter,
-            "top": this.top + 5 * this.diameter + 5 * this.lineLength
-        });
-    }).bind(this));
+    $(window).resize(this.onResize);
 
     // Trigger repositioning
-    $("html").trigger("resize");
+    this.onResize();    
 };
 
 /* ******************************************************************************************* */
@@ -371,11 +314,6 @@ $(document).ready(function () {
     $(".nav a, .navbar-brand").click(function (event) {
         var nextSlide = parseInt(this.getAttribute("data-slide"));
         slideProperties.changeSlide(nextSlide);
-
-        // if (slideProperties.scrollListener) {
-        //      slideProperties.scrollListener = false;
-        //      slideProperties.changeSlide(nextSlide);
-        // }
     });
 
     // On keyboard control
@@ -389,13 +327,11 @@ $(document).ready(function () {
 
         // Left arrow
         if (e.keyCode == '37') {
-            // slideProperties.slideListener = false;
             nextSlide = slideProperties.curSlideId - 1;
             slideProperties.changeSlide(nextSlide, 0);
         } 
         // Right arrow
         else if (e.keyCode == '39') {
-            // slideProperties.slideListener = false;
             nextSlide = slideProperties.curSlideId + 1;
             slideProperties.changeSlide(nextSlide, 0);
         }
@@ -475,20 +411,3 @@ $(document).ready(function () {
         video.play();
     }, 2000);
 });
-
-// Youtube API usage
-// var player;
-// function onYouTubeIframeAPIReady () {
-//     player = new YT.Player('player', {
-//         height: window.innerHeight,
-//         width: window.innerWidth,
-//         videoId: "gCg5aUnxNBg",
-//         events: {
-//             'onReady': onPlayerReady
-//         }
-//     });
-// }
-
-// function onPlayerReady (e) {
-//     // e.target.playVideo();
-// }

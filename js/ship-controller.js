@@ -22,7 +22,7 @@ function ShipController () {
 	this.lastTick = Date.now();
 	this.moveForward = true;
 
-	this.draw = false;
+	this.draw = true;
 }
 
 ShipController.prototype.initialize = function () {

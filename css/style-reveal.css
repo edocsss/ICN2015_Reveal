@@ -49,6 +49,7 @@ p, div {
 }
 
 .sponsor-bg-container {
+    background-image: url("../img/fullpage-photos/sponsor-bg.jpg");
     position: fixed;
     width: 100%;
     height: 100%;
@@ -134,10 +135,10 @@ a:hover {
     color: #36587D;
 }*/
 
-#buy-ticket-link > a,
-#buy-ticket-link > a:focus,
+#buy-ticket-link.active > a,
+#buy-ticket-link.active > a:focus,
 #buy-ticket-link > a:hover {
-    border-bottom: 2px solid #FFFFFF;
+    border: 2px solid #EED000;
 }
 
 #buy-ticket-link > a {

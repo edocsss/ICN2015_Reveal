@@ -211,13 +211,11 @@ a:hover {
     font-size: 40px;
     font-weight: 900;
     margin-top: 0;
-    margin-left: -20px;
 }
 
-#synopsis-text {
+.synopsis-text {
     color: #FFFFFF;
     font-size: 17px;
-    margin-left: 15px;
 }
 
 .casts-container {
@@ -413,6 +411,11 @@ a:hover {
     left: 50px;
     top: 200px;
     z-index: 100;
+    opacity: 0;
+}
+
+.timeline-show {
+    opacity: 1;
 }
 
 .sponsors-container > .container-fluid {
@@ -583,7 +586,7 @@ a:hover {
         font-size: 33px;
     }
 
-    #synopsis-text {
+    .synopsis-text {
         font-size: 16px;
         margin-left: 10px;
     }
@@ -683,7 +686,7 @@ a:hover {
         margin-bottom: 20px;
     }
 
-    #synopsis-text {
+    .synopsis-text {
         font-size: 20px;
     }
 }
@@ -695,7 +698,7 @@ a:hover {
         margin-bottom: 20px;
     }
 
-    #synopsis-text {
+    .synopsis-text {
         font-size: 24px;
     }
 }

@@ -1,3 +1,182 @@
+var timeline = {
+    selector: $(".timeline"),
+    height: 200,
+    width: $(".timeline").css("width"),
+    diameter: 16.5,
+    lineLength: 20,
+    left: $(".timeline").css("left"),
+    active: 0
+};
+
+timeline.onResize = function () {
+    console.log("ON RESIZE");
+    if (window.innerHeight > 700) {
+        this.height = 250;
+        this.diameter = 22;
+        this.lineLength = 24;
+    } else {
+        this.height = 200;
+        this.diameter = 16.5;
+        this.lineLength = 20;
+    }
+
+    this.top = (window.innerHeight / 2) - (this.height / 2) - 20;
+    this.middlePoint = this.top + this.height / 2 - 20;
+    this.width = $(".timeline").width();
+    
+    // Box positioning
+    $(".timeline").css("top", this.top);
+    $("#about-icn").css("top", this.top);
+    $("#icn2014").css("top", this.top + 1 * this.diameter + 1 * this.lineLength);
+    $("#icn2013").css("top", this.top + 2 * this.diameter + 2 * this.lineLength);
+    $("#icn2011").css("top", this.top + 3 * this.diameter + 3 * this.lineLength);
+    $("#icn2010").css("top", this.top + 4 * this.diameter + 4 * this.lineLength);
+    $("#icn2008").css("top", this.top + 5 * this.diameter + 5 * this.lineLength);
+
+    $("#about-icn").css({
+        "width": this.width,
+        "height": this.diameter,
+        "top": this.top
+    });
+
+    $("#icn2014").css({
+        "width": this.width - 25,
+        "height": this.diameter,
+        "top": this.top + 1 * this.diameter + 1 * this.lineLength
+    });
+
+    $("#icn2013").css({
+        "width": this.width - 25,
+        "height": this.diameter,
+        "top": this.top + 2 * this.diameter + 2 * this.lineLength
+    });
+
+    $("#icn2011").css({
+        "width": this.width - 25,
+        "height": this.diameter,
+        "top": this.top + 3 * this.diameter + 3 * this.lineLength
+    });
+
+    $("#icn2010").css({
+        "width": this.width - 25,
+        "height": this.diameter,
+        "top": this.top + 4 * this.diameter + 4 * this.lineLength
+    });
+
+    $("#icn2008").css({
+        "width": this.width - 25,
+        "height": this.diameter,
+        "top": this.top + 5 * this.diameter + 5 * this.lineLength
+    });
+};
+
+timeline.initialize = function () {
+    console.log("TIMELINE INIT");
+
+    // Clicking area click event
+    $("#about-icn").click(function () {
+        Reveal.slide(3, 0, 0);
+    });
+
+    $("#icn2014").click(function () {
+        Reveal.slide(3, 1, 0);
+    });
+
+    $("#icn2013").click(function () {
+        Reveal.slide(3, 2, 0);
+    });
+
+    $("#icn2011").click(function () {
+        Reveal.slide(3, 3, 0);
+    });
+
+    $("#icn2010").click(function () {
+        Reveal.slide(3, 4, 0);
+    });
+
+    $("#icn2008").click(function () {
+        Reveal.slide(3, 5, 0);
+    });
+
+    // Show timeline based on which box is hovered on
+    $("#about-icn").hover(function () {
+        $("#about-icn-underline").addClass("timeline-show");
+    }, function () {
+        if (timeline.active !== 0) {
+            $("#about-icn-underline").removeClass("timeline-show");
+        }
+    }).click(function () {
+        $(".timeline:not(:first)").removeClass("timeline-show");
+        $("#about-icn-underline").addClass("timeline-show");
+        timeline.active = 0;
+    });
+
+    $("#icn2014").hover(function () {
+        $("#icn-2014-underline").addClass("timeline-show");
+    }, function () {
+        if (timeline.active !== 1) {
+            $("#icn-2014-underline").removeClass("timeline-show");
+        }
+    }).click(function () {
+        $(".timeline:not(:first)").removeClass("timeline-show");
+        $("#icn-2014-underline").addClass("timeline-show");
+        timeline.active = 1;
+    });
+
+    $("#icn2013").hover(function () {
+        $("#icn-2013-underline").addClass("timeline-show");
+    }, function () {
+        if (timeline.active !== 2) {
+            $("#icn-2013-underline").removeClass("timeline-show");
+        }
+    }).click(function () {
+        $(".timeline:not(:first)").removeClass("timeline-show");
+        $("#icn-2013-underline").addClass("timeline-show");
+        timeline.active = 2;
+    });
+
+    $("#icn2011").hover(function () {
+        $("#icn-2011-underline").addClass("timeline-show");
+    }, function () {
+        if (timeline.active !== 3) {
+            $("#icn-2011-underline").removeClass("timeline-show");
+        }
+    }).click(function () {
+        $(".timeline:not(:first)").removeClass("timeline-show");
+        $("#icn-2011-underline").addClass("timeline-show");
+        timeline.active = 3;
+    });
+
+    $("#icn2010").hover(function () {
+        $("#icn-2010-underline").addClass("timeline-show");
+    }, function () {
+        if (timeline.active !== 4) {
+            $("#icn-2010-underline").removeClass("timeline-show");
+        }
+    }).click(function () {
+        $(".timeline:not(:first)").removeClass("timeline-show");
+        $("#icn-2010-underline").addClass("timeline-show");
+        timeline.active = 4;
+    });
+
+    $("#icn2008").hover(function () {
+        $("#icn-2008-underline").addClass("timeline-show");
+    }, function () {
+         if (timeline.active !== 5) {
+            $("#icn-2008-underline").removeClass("timeline-show");
+        }
+    }).click(function () {
+        $(".timeline:not(:first)").removeClass("timeline-show");
+        $("#icn-2008-underline").addClass("timeline-show");
+        timeline.active = 5;
+    });
+
+    // Repositioning on resize
+    $(window).resize(this.onResize); 
+};
+
+/* ******************************************************************************************* */
+
 var video = document.getElementById("welcome-video"),
     slideProperties = {
         n: 7,
@@ -59,21 +238,15 @@ slideProperties.changeSlide = function (targetSlide) {
         }, 700);
     }
 
-    // PROBLEM OCCURS HERE!!! IF REMOVE THE BACKGROUND, SLIDE IS SMOOTH
-
-    // Change BODY BACKGROUND for SPONSORS and PARTNERS slide
-    // if (targetSlide === this.n - 3 || targetSlide === this.n - 2) {
-    //     $(".sponsor-bg-container").animate({
-    //         opacity: 1
-    //     }, 400);
-    // } else {
-    //     $(".sponsor-bg-container").animate({
-    //         opacity: 0
-    //     }, 400);
-    // }
-
     if (targetSlide === 0 && !video.ended) {
         video.play();
+    }
+
+    if (targetSlide === this.n - 4) {
+        timeline.onResize();
+        $(".timeline:not(:first)").removeClass("timeline-show");
+        $("#about-icn-underline").addClass("timeline-show");
+        timeline.active = 0;
     }
 
     if (targetSlide >= this.n - 3 && this.footer.visibility === true) {
@@ -138,110 +311,6 @@ slideProperties.enableScroll = function () {
 //         loadingProperties.init = true;
 //     }
 // }, $.noop, true);
-
-/* ******************************************************************************************* */
-
-var timeline = {
-    selector: $(".timeline"),
-    height: 200,
-    width: $(".timeline").css("width"),
-    diameter: 16.5,
-    lineLength: 20,
-    left: $(".timeline").css("left")
-};
-
-timeline.onResize = function () {
-    if (window.innerHeight > 700) {
-        this.height = 250;
-        this.diameter = 22;
-        this.lineLength = 24;
-    } else {
-        this.height = 200;
-        this.diameter = 16.5;
-        this.lineLength = 20;
-    }
-
-    this.top = (window.innerHeight / 2) - (this.height / 2) - 20;
-    this.middlePoint = this.top + this.height / 2 - 20;
-    this.width = $(".timeline").width();
-    
-    $(".timeline").css("top", this.top);
-    $("#about-icn").css("top", this.top);
-    $("#icn2014").css("top", this.top + 1 * this.diameter + 1 * this.lineLength);
-    $("#icn2013").css("top", this.top + 2 * this.diameter + 2 * this.lineLength);
-    $("#icn2011").css("top", this.top + 3 * this.diameter + 3 * this.lineLength);
-    $("#icn2010").css("top", this.top + 4 * this.diameter + 4 * this.lineLength);
-    $("#icn2008").css("top", this.top + 5 * this.diameter + 5 * this.lineLength);
-
-    $("#about-icn").css({
-        "width": this.width,
-        "height": this.diameter,
-        "top": this.top
-    });
-
-    $("#icn2014").css({
-        "width": this.width - 25,
-        "height": this.diameter,
-        "top": this.top + 1 * this.diameter + 1 * this.lineLength
-    });
-
-    $("#icn2013").css({
-        "width": this.width - 25,
-        "height": this.diameter,
-        "top": this.top + 2 * this.diameter + 2 * this.lineLength
-    });
-
-    $("#icn2011").css({
-        "width": this.width - 25,
-        "height": this.diameter,
-        "top": this.top + 3 * this.diameter + 3 * this.lineLength
-    });
-
-    $("#icn2010").css({
-        "width": this.width - 25,
-        "height": this.diameter,
-        "top": this.top + 4 * this.diameter + 4 * this.lineLength
-    });
-
-    $("#icn2008").css({
-        "width": this.width - 25,
-        "height": this.diameter,
-        "top": this.top + 5 * this.diameter + 5 * this.lineLength
-    });
-};
-
-timeline.initialize = function () {
-        // Clicking area click event
-    $("#about-icn").click(function () {
-        Reveal.slide(3, 0, 0);
-    });
-
-    $("#icn2014").click(function () {
-        Reveal.slide(3, 1, 0);
-    });
-
-    $("#icn2013").click(function () {
-        Reveal.slide(3, 2, 0);
-    });
-
-    $("#icn2011").click(function () {
-        Reveal.slide(3, 3, 0);
-    });
-
-    $("#icn2010").click(function () {
-        Reveal.slide(3, 4, 0);
-    });
-
-    $("#icn2008").click(function () {
-        Reveal.slide(3, 5, 0);
-    });
-
-    // Repositioning on resize
-    $(window).resize(this.onResize);
-
-    // Trigger repositioning
-    this.onResize();    
-};
 
 /* ******************************************************************************************* */
 

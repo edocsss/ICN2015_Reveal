@@ -27,7 +27,7 @@ resizeCanvas();
 /************************************************/
 
 // Set interval for redrawing canvas
-var timeUpdateInterval = setInterval(drawCanvas, 1000 / 40);
+var timeUpdateInterval = setInterval(drawCanvas, 1000 / 60);
 
 function resizeCanvas (e) {
 	WIDTH = window.innerWidth;

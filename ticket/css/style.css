@@ -10,7 +10,8 @@
 
 html, body {
 	width: 100%;
-	height: 100%;
+	height: auto;
+    padding-bottom: 5px;
 	font-family: LiberationSerif;
     color: #FFFFFF;
     overflow-x: hidden;
@@ -18,15 +19,21 @@ html, body {
 }
 
 body {
-	background-image: url("../../img/background.svg");
+	/*background-image: url("../../img/background.svg");*/
 }
 
 h1, h2, h3, h4, h5, h6, .navbar-nav > li > a {
     font-family: Timeless;
 }
 
-p, div {
+p, div, input[type="text"] {
     font-family: LiberationSerif;
+}
+
+hr {
+    margin-top: 0;
+    margin-bottom: 0;
+    border-top: 1px solid #BBBBBB;
 }
 
 .loading-layer {
@@ -38,15 +45,63 @@ p, div {
 	z-index: 100000;
 }
 
+.background-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.background-img {
+    width: 100%;
+    height: 100%;
+}
+
+.price-box {
+    position: fixed;
+    background-color: #FFFFFF;
+    color: #333333;
+    width: 25%;
+    height: auto;
+    right: 70px;
+    /*box-shadow: 0 0 3px 2px #CCCCCC;*/
+    border-radius: 4px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.ticket-amount-container h4 {
+    margin-bottom: 0;
+}
+
+.total-price-container {
+    margin-bottom: 5px;
+}
+
+.submit-button-container {
+    margin-bottom: 15px;
+}
+
+.price-box-small {
+    height: auto;
+    background-color: #FFFFFF;
+    color: #333333;
+    border-radius: 4px;
+}
+
+.main-container {
+    padding-top: 10px;
+}
+
+a:hover {
+    background-color: transparent;
+}
+
 .navbar {
     /*background-color: #010f1d;*/
     background-color: transparent;
     color: #FFFFFF;
     border: none;
-}
-
-.navbar-fixed-top {
-    background-color: transparent;
+    margin-bottom: 0;
 }
 
 .navbar-fixed-top > .container-fluid {
@@ -64,6 +119,69 @@ p, div {
     margin-right: 12px;
 }
 
+.navbar-default .navbar-nav > li {
+    margin-right: 12px;
+}
+
+.navbar-default .navbar-nav > li:last-child {
+    margin-right: 0;
+}
+
+.navbar-default .navbar-nav > li {
+    margin-top: 17px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #FFFFFF;
+    font-size: 1.9rem;
+    font-weight: bold;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.navbar-default .navbar-nav > li > a:active,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #FFFFFF;
+    border: none;
+}
+
+.navbar-default .navbar-nav > li > a:active,
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > li > a:visited {
+    border: none;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > li > a:hover {
+    background-color: transparent;
+    color: #EED000; /* If you change this, do not forget to look for "color:#EED000" in bootstrap.min.css and change with the same color as the hover color */
+    border-bottom: solid #EED000 2px;
+}
+
+.navbar-collapse.collapse.in {
+    padding-left: 40px;
+    border: none;
+}
+
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+    border-color: transparent;
+}
+
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:hover {
+    background-color: transparent;
+}
+
+.navbar-default .navbar-collapse.collapse.in .navbar-nav > .active > a,
+.navbar-default .navbar-collapse.collapse.in .navbar-nav > .active > a:focus,
+.navbar-default .navbar-collapse.collapse.in .navbar-nav > li > a:hover {
+    border-bottom: none;
+}
+
 .logo {
     width: auto;
     height: 40px;
@@ -75,32 +193,81 @@ p, div {
     margin-top: 4px;
 }
 
-#canvas-container {
-    position: fixed; /* Since position is fixed, the width and height must be specified too in order not to distsurb the WAVECONTROLLER DETAIL value */
-    width: 100%;
-    height: 100%;
+.ticketing-title {
+    font-size: 40px;
+    margin-top: 30px;
+    margin-bottom: 20px;
 }
 
-#canvas {
-    width: 100%;
-    height: 100%;
+.circle-number {
+    width: 45px;
+    height: 45px;
+    padding-top: 5px;
+    margin-right: 20px;
+    border-radius: 50px;
+    border: 2px solid #FFFFFF;
     background-color: transparent;
+    text-align: center;
+    overflow: hidden;
 }
 
-.main-container > .container-fluid {
-    padding-top: 60px;
+.form-section {
+    padding-left: 50px;
+    margin-bottom: 15px;
 }
 
-@media all and (max-width: 450px) {
+.form-section-title {
+    margin-bottom: 20px;
+    padding-left: 0;
+}
+
+.form-section-title-text {
+    padding-top: 7px;
+}
+
+.circle-number > h2, .form-section-title-text > h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.form-section-content {
+    /*background-color: rgba(255, 255, 255, 0.9);*/
+    /*padding-top: 30px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+    padding-right: 30px;*/
+    border-radius: 4px;
+    margin-left: 50px;
+}
+
+#check-reservation-modal .modal-dialog {
+    margin-top: 100px;
+}
+
+#check-reservation-modal .close {
+    margin-top: 4px;
+    margin-right: 4px;
+}
+
+#check-reservation-modal .close > span {
+    font-size: 35px;
+}
+
+.modal-title, .modal-body {
+    color: #333333;
+}
+
+#check-reservation-modal .form-group {
+    margin-bottom: 0;
+}
+
+@media all and (max-width: 767px) {
     .icn-logo {
         display: none;
     }
 
-    .logo {
-        height: 35px;
-    }
-
-    .navbar-brand {
-        padding-left: 5px;
+    #check-reservation-modal .modal-dialog {
+        margin-left: 50px;
+        margin-right: 50px;
     }
 }

@@ -91,13 +91,19 @@ ShipController.prototype.drawShip = function () {
 		// Update position Y
 		this.updateY(delta);
 
+		// Link to ticketing page if the ship has gone through the window
+		if (this.x >= WIDTH) {
+			console.log("REDIRECT");
+			window.location = "ticket/index.php";
+		}
+
 		// Draw ship image
 		context.drawImage(this.ship, this.x, this.y, this.width, this.height);
 	}
 };
 
 ShipController.prototype.canvasResized = function () {
-	this.width = 0.5 * WIDTH;
-	this.height = 0.7 * HEIGHT;
+	this.width = 0.6 * WIDTH;
+	this.height = 0.8 * HEIGHT;
 	this.y = WaveController.WAVE_HEIGHT_MULTIPLIER * HEIGHT - 0.915 * this.height;
 };

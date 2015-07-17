@@ -4,7 +4,23 @@ $(document).ready(function () {
             opacity: 0
         }, 400, function () {
             $(".loading-layer").css("display", "none");
-            shipController.targetX = 0.2 * WIDTH;
         });
     }, 1000);
+
+	// var priceBox = {
+	// 	top: $(".price-box").css("top"),
+	// 	curY: $(window).scrollTop()
+	// };
+
+	$(".price-box").css("top", (window.innerHeight - $(".price-box").height()) / 2);
+	// $(window).scroll(function () {
+	// 	var distance = $(window).scrollTop() - priceBox.curY;
+
+	// 	$(".price-box").stop();
+	// 	$(".price-box").animate({
+	// 		"top": priceBox.top + distance
+	// 	}, 10);
+
+	// 	priceBox.top = distance;
+	// });
 });

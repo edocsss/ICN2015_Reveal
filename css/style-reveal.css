@@ -383,7 +383,7 @@ a:hover {
 .history-container > .row > div > h2.text-center {
     font-size: 46px;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .history > p {
@@ -438,10 +438,11 @@ a:hover {
 
 .sponsor-logo {
     height: 100px;
+    margin-right: 40px;
 }
 
-.sponsor-logo:not(:last-child) {
-    margin-right: 40px;
+.sponsor-logo-last {
+    margin-right: 0;
 }
 
 .sponsor-row {
@@ -482,11 +483,31 @@ a:hover {
     background-color: transparent;
 }
 
-#form-area {
+.ticket-description-container {
     width: 100%;
     height: 100%;
     position: fixed;
     background-color: transparent;
+}
+
+.ticket-description {
+    width: 100%;
+    height: auto;
+}
+
+.buy-ticket-description {
+    width: auto;
+    height: 60%;
+    margin-top: 10px;
+    margin-bottom: 20px
+}
+
+.buy-ticket-button {
+    width: 300px;
+}
+
+.buy-ticket-button:hover {
+    cursor: pointer;
 }
 
 #footer {
@@ -527,8 +548,8 @@ a:hover {
 }
 
 .social-media-container > a:first-child > .social-media-icon {
-        margin-right: 0;
-    }
+    margin-right: 0;
+}
 
 @media all and (max-width: 1024px) {
     .section-background-image {
@@ -619,7 +640,7 @@ a:hover {
 
     .history-container > .row > div > h2.text-center {
         font-size: 54px;
-        margin-bottom: 25px;
+        margin-bottom: 35px;
     }
 
     .history > p {
@@ -635,7 +656,7 @@ a:hover {
 
     .history-container > .row > div > h2.text-center {
         font-size: 70px;
-        margin-bottom: 30px;
+        margin-bottom: 45px;
     }
 
     .history > p {

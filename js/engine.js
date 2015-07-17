@@ -222,7 +222,7 @@ slideProperties.changeSlide = function (targetSlide) {
 
     // Handle Canvas shown only in the last slide
     if (targetSlide === this.n - 1) {
-        shipController.targetX = 0.4 * WIDTH;
+        shipController.targetX = 0.55 * WIDTH;
         shipController.draw = true;
 
         $(".canvas-container").animate({
@@ -479,4 +479,12 @@ $(document).ready(function () {
 
         video.play();
     }, 2000);
+
+    // Ship sails on buy ticket button click
+    $(".buy-ticket-button").click(function () {
+        shipController.vx = 10;
+        shipController.targetX = WIDTH + shipController.width;
+
+        $(".buy-ticket-container").fadeOut(500);
+    });
 });

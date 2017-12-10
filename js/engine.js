@@ -23,7 +23,7 @@ timeline.onResize = function () {
     this.top = (window.innerHeight / 2) - (this.height / 2) - 20;
     this.middlePoint = this.top + this.height / 2 - 20;
     this.width = $(".timeline").width();
-    
+
     // Box positioning
     $(".timeline").css("top", this.top);
     $("#about-icn").css("top", this.top);
@@ -172,14 +172,14 @@ timeline.initialize = function () {
     });
 
     // Repositioning on resize
-    $(window).resize(this.onResize); 
+    $(window).resize(this.onResize);
 };
 
 /* ******************************************************************************************* */
 
 var video = document.getElementById("welcome-video"),
     slideProperties = {
-        n: 7,
+        n: 5,
         curSlideId: 0,
         scrollListener: true,
         footer: {
@@ -232,7 +232,7 @@ slideProperties.changeSlide = function (targetSlide) {
     } else {
         shipController.targetX = 0;
         shipController.draw = false;
-        
+
         $(".canvas-container").stop().animate({
             opacity: 0
         }, 700);
@@ -249,15 +249,15 @@ slideProperties.changeSlide = function (targetSlide) {
         timeline.active = 0;
     }
 
-    if (targetSlide >= this.n - 3 && this.footer.visibility === true) {
+    if (targetSlide >= this.n - 1 && this.footer.visibility === true) {
         this.footer.hide();
-    } else if (targetSlide < this.n - 3 && this.footer.visibility === false) {
+    } else if (targetSlide < this.n - 1 && this.footer.visibility === false) {
         this.footer.show();
     }
-    
+
     // this.checkActiveLink(targetSlide);
     Reveal.slide(targetSlide, 0, 0);
-    
+
     this.curSlideId = targetSlide;
     // lastPosition = targetSlide;
 };
@@ -398,7 +398,7 @@ $(document).ready(function () {
         if (e.keyCode == '37') {
             nextSlide = slideProperties.curSlideId - 1;
             slideProperties.changeSlide(nextSlide, 0);
-        } 
+        }
         // Right arrow
         else if (e.keyCode == '39') {
             nextSlide = slideProperties.curSlideId + 1;
